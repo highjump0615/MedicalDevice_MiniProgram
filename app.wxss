@@ -5,6 +5,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 30rpx;
+
   box-sizing: border-box;
 } 
+
+.color-theme {
+  color: #1098a6;
+}
+
+button[type="primary"] {
+  background-color: #1098a6;
+}

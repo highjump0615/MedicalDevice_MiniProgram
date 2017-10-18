@@ -1,13 +1,16 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
+  <!-- logo -->
+  <image class="logo" src="../../res/images/logo.png" mode='aspectFit' />
+
+  <text class="title color-theme">“通络一堂”经络健康互联网共享平台</text>
+  <text class="desc color-theme"
+  >利用自主知识产权冲击波产品，为您提供通络理疗保健服务，快速祛痛，长期调理。欢迎体验并加入“通络一堂”合伙人行列，共同参与，共同成长，共享健康，共享收益。
+  </text>
+
+  <!-- 进入 -->
+
+  <button type="primary">进入</button>
+
 </view>
