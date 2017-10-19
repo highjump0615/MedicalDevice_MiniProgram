@@ -12,8 +12,15 @@
 	"projectname": "%E9%80%9A%E7%BB%9C%E4%B8%80%E5%A0%82",
 	"condition": {
 		"weapp": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				}
+			]
 		},
 		"search": {
 			"current": -1,

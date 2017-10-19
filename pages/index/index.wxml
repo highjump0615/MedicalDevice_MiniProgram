@@ -2,7 +2,7 @@
 <view class="container">
 
   <!-- logo -->
-  <image class="logo" src="../../res/images/logo.png" mode='aspectFit' />
+  <image class="logo" src="../../res/images/logo.png" mode="aspectFit" />
 
   <text class="title color-theme">“通络一堂”经络健康互联网共享平台</text>
   <text class="desc color-theme"
@@ -10,7 +10,6 @@
   </text>
 
   <!-- 进入 -->
-
-  <button type="primary">进入</button>
+  <button type="primary" bindtap="gotoHome">进入</button>
 
 </view>

@@ -1,4 +1,7 @@
 /**index.wxss**/
+.container {
+  padding: 30rpx;
+}
 
 .logo {
   margin-top: 180rpx;
