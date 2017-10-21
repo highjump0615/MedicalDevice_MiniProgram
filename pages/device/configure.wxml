@@ -1,0 +1,26 @@
+<!--pages/device/configure.wxml-->
+<view>
+  <!-- 菜单 -->
+  <view class="nav-items">
+    <!-- 网络 -->
+    <view class="nav-item bottom-border">
+      <view class="flex-row flex-rest-width" bindtap="goToWifiList">
+        <text class="text-name">网络</text>
+        <text class="nav-content flex-rest-width"></text>
+      </view>
+      <view class="flex-item-right flex-row">
+        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+      </view>
+    </view>
+
+    <!-- 密码 -->
+    <view class="nav-item bottom-border">
+        <view class="flex-row flex-rest-width">
+          <text class="text-name">密码</text>
+          <input class="nav-content flex-rest-width" placeholder="请输入" password="true" />
+        </view>
+      </view>
+  </view>
+</view>
+
+<button type="primary" bindtap="doConfigure">确定</button>

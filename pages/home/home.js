@@ -8,16 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    controls: [{
-      id: 1,
-      iconPath: '../../res/images/but_start.png',
-      position: {
-        left: 0,
-        top: 200,
-        width: gnWidthButton,
-        height: gnHeightButton,
-      }
-    }]
   },
 
   /**
@@ -67,6 +57,27 @@ Page({
         });
       }
     });
+  },
+
+  /**
+   * 点击地图控件
+   * @param {*} e 
+   */
+  controlTap(e) {
+    // 扫码开机
+    if (e.controlId == 1) {
+      wx.scanCode({
+        success: (res) => {
+          console.log(res);
+        }
+      });
+    }
+    // 设备入网
+    else {
+      wx.navigateTo({
+        url: '../device/configure'
+      });
+    }
   },
 
   /**

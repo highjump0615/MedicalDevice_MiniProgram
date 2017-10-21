@@ -2,9 +2,12 @@
   "pages":[
     "pages/index/index",
     "pages/home/home",
+    "pages/device/configure",
+    "pages/device/configure/success",
+    "pages/device/wifilist",
+    "pages/logs/logs",
     "pages/manage/manage",
-    "pages/profile/profile",
-    "pages/logs/logs"
+    "pages/profile/profile"
   ],
   "window":{
     "backgroundTextStyle":"light",

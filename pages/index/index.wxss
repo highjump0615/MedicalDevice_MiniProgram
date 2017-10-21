@@ -10,7 +10,6 @@
 }
 
 .title {
-  text-align: center;
   margin-top: 150rpx;
   font-size: 40rpx;
 }

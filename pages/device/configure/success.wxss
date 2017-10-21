@@ -1,0 +1,15 @@
+/* pages/device/configure/success.wxss */
+.container {
+  margin: 100rpx 30rpx;
+}
+
+/* 提示 */
+.notice-title {
+  font-size: 46rpx;
+  margin-top: 30px;
+}
+
+button {
+  margin-top: 130rpx;
+  width: 100%;
+}

@@ -1,0 +1,7 @@
+<!--pages/device/configure/success.wxml-->
+<view class="container">
+  <icon type="success" size="120" color="{{themeColor}}" />
+  <text class="notice-title">配置设备成功</text>
+
+  <button type="primary" bindtap="goBack">确认</button>
+</view>

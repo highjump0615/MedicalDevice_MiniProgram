@@ -1,0 +1,15 @@
+/* pages/device/configure.wxss */
+
+page {
+  background-color: #efeff4;
+}
+
+.nav-content {
+  margin-left: 30rpx;
+  font-size: 34rpx;
+  color: gray;
+}
+
+button {
+  margin: 100rpx 30rpx;
+}

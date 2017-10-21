@@ -16,6 +16,7 @@ button[type="primary"] {
   background-color: #1098a6;
 }
 
+/* 列表样式 */
 .nav-items {
   margin-top: 30rpx;
   background: white;
@@ -39,6 +40,13 @@ button[type="primary"] {
   color: #515151;
 }
 
+.nav-item-arrow {
+  width: 16rpx;
+  height: 25rpx;
+  margin-left: 40rpx;
+}
+
+/* 通用flex样式 */
 .flex-item-right {
   align-self: flex-end;
 }
@@ -55,10 +63,4 @@ button[type="primary"] {
   display: flex;
   align-items: center;
   height: 100%;
-}
-
-.nav-item-arrow {
-  width: 16rpx;
-  height: 25rpx;
-  margin-left: 40rpx;
 }
