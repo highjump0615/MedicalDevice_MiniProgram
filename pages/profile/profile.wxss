@@ -1,1 +1,70 @@
 /* pages/profile/profile.wxss */
+page {
+  background-color: #efeff4;
+}
+
+.userinfo {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx;
+}
+
+.userinfo-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-bottom: 30rpx;
+}
+
+.userinfo text {
+  font-size: 34rpx;
+}
+
+.nav-items {
+  margin-top: 30rpx;
+  background: white;
+}
+
+.nav-item {
+  height: 88rpx;
+  display:flex;
+  margin-left: 30rpx;
+  padding-right: 30rpx;
+  align-items: center;
+}
+.nav-item.bottom-border {
+  border-bottom: 1px solid #efeff4;
+}
+.nav-item .text-name {
+  font-size: 34rpx;
+}
+.nav-item .text-right {
+  font-size: 30rpx;
+  color: #515151;
+}
+
+.flex-item-right {
+  align-self: flex-end;
+}
+
+.vert-center {
+  align-self: center;
+}
+
+.flex-rest-width {
+  flex: 1;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item-arrow {
+  width: 16rpx;
+  height: 25rpx;
+  margin-left: 40rpx;
+}
