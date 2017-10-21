@@ -17,7 +17,7 @@
 				{
 					"id": 0,
 					"name": "home",
-					"pathName": "pages/profile/profile",
+					"pathName": "pages/home/home",
 					"query": ""
 				}
 			]

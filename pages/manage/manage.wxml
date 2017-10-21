@@ -1,2 +1,59 @@
 <!--pages/manage/manage.wxml-->
-<text>pages/manage/manage.wxml</text>
+<view>
+  <!-- 菜单 -->
+  <view class="nav-items">
+      <!-- 会员 -->
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">会员</text>
+        <view class="flex-item-right flex-row">
+          <text class="text-right">105</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
+      </view>
+  
+      <!-- 合伙人 -->
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">合伙人</text>
+        <view class="flex-item-right flex-row">
+          <text class="text-right">5</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
+      </view>
+  
+      <!-- 系统用户 -->
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">系统用户</text>
+        <view class="flex-item-right flex-row">
+          <text class="text-right">5</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
+      </view>
+  
+      <!-- 系统设备 -->
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">系统设备</text>
+        <view class="flex-item-right flex-row">
+          <text class="text-right">25</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
+      </view>
+  
+      <!-- 使用次数 -->
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">使用次数</text>
+        <view class="flex-item-right flex-row">
+          <text class="text-right">105</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
+      </view>
+  
+      <!-- 平台账户 -->
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">平台账户</text>
+        <view class="flex-item-right flex-row">
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
+      </view>
+  
+    </view>
+</view>
