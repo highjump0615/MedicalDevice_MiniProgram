@@ -26,7 +26,7 @@ Page({
             iconPath: '../../res/images/but_start.png',
             position: {
               left: (res.windowWidth - gnWidthButton) / 2,
-              top: res.windowHeight - 185,
+              top: res.screenHeight - 250,
               width: gnWidthButton,
               height: gnHeightButton,
             },
@@ -37,7 +37,7 @@ Page({
             iconPath: '../../res/images/but_device.png',
             position: {
               left: (res.windowWidth - gnWidthButton) / 2,
-              top: res.windowHeight - 125,
+              top: res.screenHeight - 190,
               width: gnWidthButton,
               height: gnHeightButton,
             },

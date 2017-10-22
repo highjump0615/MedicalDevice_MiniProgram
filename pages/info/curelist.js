@@ -1,4 +1,4 @@
-// pages/device/configure.js
+// pages/info/curelist.js
 Page({
 
   /**
@@ -62,23 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  /**
-   * 跳转到wifi列表页面
-   */
-  gotoWifiList: function() {
-    wx.navigateTo({
-      url: 'wifilist'
-    });
-  },
-
-  /**
-   * 配置
-   */
-  doConfigure: function() {
-    wx.redirectTo({
-      url: 'configure/success'
-    });
   }
 })

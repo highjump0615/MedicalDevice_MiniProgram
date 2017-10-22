@@ -9,9 +9,9 @@
   <!-- 菜单 -->
   <view class="nav-items">
     <!-- 理疗 -->
-    <view class="nav-item bottom-border">
+    <view class="nav-item bottom-border" bindtap="gotoCureList">
       <text class="text-name flex-rest-width">理疗</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <text class="text-right">105次</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
@@ -20,7 +20,7 @@
     <!-- 积分 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">积分</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <text class="text-right">1200分</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
@@ -29,7 +29,7 @@
     <!-- 提成 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">提成</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <text class="text-right">100元</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
@@ -38,7 +38,7 @@
     <!-- 管理员 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">管理员</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <text class="text-right">25人</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
@@ -47,7 +47,7 @@
     <!-- 使用定价 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">使用定价</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
@@ -55,7 +55,7 @@
     <!-- 体验感受 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">体验感受</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
@@ -63,7 +63,7 @@
     <!-- 推荐分享 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">推荐分享</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
@@ -71,7 +71,7 @@
     <!-- 申报设备故障 -->
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">申报设备故障</text>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>

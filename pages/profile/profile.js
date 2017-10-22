@@ -88,5 +88,14 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 跳转到我的理疗页面
+   */
+  gotoCureList:function() {
+    wx.navigateTo({
+      url: '../info/curelist'
+    });
   }
 })

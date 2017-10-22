@@ -46,11 +46,6 @@ button[type="primary"] {
   margin-left: 40rpx;
 }
 
-/* 通用flex样式 */
-.flex-item-right {
-  align-self: flex-end;
-}
-
 .vert-center {
   align-self: center;
 }
@@ -62,5 +57,30 @@ button[type="primary"] {
 .flex-row {
   display: flex;
   align-items: center;
-  height: 100%;
+}
+
+/* 表格 */
+.table {
+  font-size: 30rpx;
+  width: 100%;
+  border: 1px solid #bfbfbf;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.thead {
+  color: white;
+  background-color: #1098a6;
+}
+
+.tr {
+  display: flex;
+}
+
+.td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #bfbfbf;
+  border-left: 0;
+  border-top: 0;
 }

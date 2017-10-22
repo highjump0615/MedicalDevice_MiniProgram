@@ -4,11 +4,11 @@
   <view class="nav-items">
     <!-- 网络 -->
     <view class="nav-item bottom-border">
-      <view class="flex-row flex-rest-width" bindtap="goToWifiList">
+      <view class="flex-row flex-rest-width" bindtap="gotoWifiList">
         <text class="text-name">网络</text>
         <text class="nav-content flex-rest-width"></text>
       </view>
-      <view class="flex-item-right flex-row">
+      <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>

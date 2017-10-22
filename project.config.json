@@ -12,12 +12,12 @@
 	"projectname": "%E9%80%9A%E7%BB%9C%E4%B8%80%E5%A0%82",
 	"condition": {
 		"weapp": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "home",
-					"pathName": "pages/device/configure",
+					"pathName": "pages/home/home",
 					"query": ""
 				}
 			]
