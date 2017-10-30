@@ -1,0 +1,20 @@
+/* pages/info/curelist.wxss */
+.container {
+  margin: 30rpx;
+}
+
+.tr .td:nth-child(1) {
+  flex: 1;
+}
+
+.tr .td:nth-child(2) {
+  flex: 3;
+}
+
+.tr .td:nth-child(3) {
+  flex: 2;
+}
+
+.tr .td:nth-child(4) {
+  flex: 2;
+}

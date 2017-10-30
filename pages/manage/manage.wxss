@@ -1,0 +1,5 @@
+/* pages/manage/manage.wxss */
+
+page {
+  background-color: #efeff4;
+}

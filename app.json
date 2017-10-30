@@ -1,12 +1,43 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/home/home",
+    "pages/device/configure",
+    "pages/device/configure/success",
+    "pages/device/wifilist",
+    "pages/logs/logs",
+    "pages/manage/manage",
+    "pages/profile/profile",
+    "pages/info/curelist"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#353535",
+    "navigationBarTitleText": "通络一堂",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "selectedColor": "#1098a6",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "res/images/tab_home.png",
+        "selectedIconPath": "res/images/tab_home_selected.png"
+      },
+      {
+        "pagePath": "pages/manage/manage",
+        "text": "管理",
+        "iconPath": "res/images/tab_manage.png",
+        "selectedIconPath": "res/images/tab_manage_selected.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "res/images/tab_profile.png",
+        "selectedIconPath": "res/images/tab_profile_selected.png"
+      }
+    ]
   }
 }
+
