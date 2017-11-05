@@ -13,7 +13,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#353535",
-    "navigationBarTitleText": "通络一堂",
+    "navigationBarTitleText": "通络吧",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
