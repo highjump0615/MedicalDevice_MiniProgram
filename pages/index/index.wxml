@@ -10,6 +10,6 @@
   </text>
 
   <!-- 进入 -->
-  <button type="primary" bindtap="gotoHome">进入</button>
+  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">进入</button>
 
 </view>

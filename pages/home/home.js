@@ -1,7 +1,10 @@
+// pages/home/home.js
+var api = require('../../utils/api.js');
+var Device = require('../../model/Device.js');
+
 var gnWidthButton = 130;
 var gnHeightButton = 45;
 
-// pages/home/home.js
 Page({
 
   /**
@@ -26,23 +29,24 @@ Page({
             iconPath: '../../res/images/but_start.png',
             position: {
               left: (res.windowWidth - gnWidthButton) / 2,
-              top: res.screenHeight - 250,
-              width: gnWidthButton,
-              height: gnHeightButton,
-            },
-            clickable: true
-          },
-          {
-            id: 2,
-            iconPath: '../../res/images/but_device.png',
-            position: {
-              left: (res.windowWidth - gnWidthButton) / 2,
-              top: res.screenHeight - 190,
+              // top: res.screenHeight - 250,
+              top: res.screenHeight - 200,
               width: gnWidthButton,
               height: gnHeightButton,
             },
             clickable: true
           }]
+          // {
+          //   id: 2,
+          //   iconPath: '../../res/images/but_device.png',
+          //   position: {
+          //     left: (res.windowWidth - gnWidthButton) / 2,
+          //     top: res.screenHeight - 190,
+          //     width: gnWidthButton,
+          //     height: gnHeightButton,
+          //   },
+          //   clickable: true
+          // }]
         });
       }
     })
@@ -63,12 +67,37 @@ Page({
    * 点击地图控件
    * @param {*} e 
    */
-  controlTap(e) {
+  controlTap: function (e) {
+    var that = this;
+
     // 扫码开机
     if (e.controlId == 1) {
       wx.scanCode({
         success: (res) => {
           console.log(res);
+
+          // 设备绑定
+          api.gwBindDevice('5ccf7ff6af95', 
+            function success(res) {
+              if (res.data.error_code) {
+                // 失败
+                wx.showModal({
+                  title: '绑定设备失败',
+                  content: res.data.error_message,
+                  showCancel: false
+                });
+
+                return;
+              }
+
+              var device = new Device(res.data);
+              that.startDevice(device.did);
+            },
+            function fail(err) {
+            },
+            function complete() {
+            }
+          );
         }
       });
     }
@@ -78,6 +107,31 @@ Page({
         url: '../device/configure'
       });
     }
+  },
+
+  /**
+   * 打开设备
+   */
+  startDevice: function(did) {
+    // 设备绑定
+    api.gwControlDevice(did, 
+      function success(res) {
+        if (res.data.error_code) {
+          // 失败
+          wx.showModal({
+            title: '设备开机失败',
+            content: res.data.error_message,
+            showCancel: false
+          });
+          
+          return;
+        }
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
   },
 
   /**
