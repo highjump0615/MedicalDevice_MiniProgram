@@ -21,6 +21,12 @@ button[type="primary"] {
   margin-top: 30rpx;
   background: white;
 }
+.top-border {
+  border-top: 1px solid #efeff4;
+}
+.bottom-border {
+  border-bottom: 1px solid #efeff4;
+}
 
 .nav-item {
   height: 88rpx;
@@ -28,9 +34,6 @@ button[type="primary"] {
   margin-left: 30rpx;
   padding-right: 30rpx;
   align-items: center;
-}
-.nav-item.bottom-border {
-  border-bottom: 1px solid #efeff4;
 }
 .nav-item .text-name {
   font-size: 34rpx;
@@ -117,6 +120,7 @@ button[loading]::before {
 /* 列表页面表头 */
 .header {
   background-color: #fafafa;
+  font-size: 30rpx;
 }
 .header button {
   font-size: 30rpx;

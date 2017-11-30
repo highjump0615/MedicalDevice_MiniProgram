@@ -26,7 +26,7 @@
 				{
 					"id": 0,
 					"name": "home",
-					"pathName": "pages/manage/partner/list",
+					"pathName": "pages/manage/member/list",
 					"query": ""
 				}
 			]
