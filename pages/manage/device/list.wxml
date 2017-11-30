@@ -1,0 +1,60 @@
+<!--pages/manage/device/list.wxml-->
+
+<view class="nav-items top-border bottom-border">
+  <!-- 设备编码 -->
+  <view class="nav-item bottom-border">
+    <view class="flex-row flex-rest-width">
+      <input class="nav-item-content flex-rest-width" placeholder="设备编码" bindinput="onInputCode" />
+    </view>
+  </view>
+  <!-- 设备类型 -->
+  <view class="nav-item bottom-border">
+    <text class="text-name flex-rest-width">设备类型</text>
+    <view class="flex-row">
+      <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
+    </view>
+  </view>
+  <!-- 设备类型 -->
+  <view class="nav-item">
+    <text class="text-name flex-rest-width">设备状态</text>
+    <view class="flex-row">
+      <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
+    </view>
+  </view>
+</view>
+
+<!-- 查找 -->
+<button type="primary">查找</button>
+<!-- 新添 -->
+<button type="primary">新添</button>
+
+<!-- 查找结果 -->
+<view class="search-result">
+  <text>查找结果：</text>
+
+  <!-- 表格 -->
+  <view class="table">
+    <!-- 表头 -->
+    <view class="thead">
+      <view class="tr">
+          <view class="td">序号</view>
+          <view class="td">设备编码</view>
+          <view class="td">设备状态</view>
+          <view class="td">设备类别</view>
+      </view>
+    </view>
+  
+    <!-- 内容-->
+    <view class="tbody">
+      <block wx:for="{{[0,1,2,3,4]}}" wx:for-item="i" wx:key="">
+      <view class="tr">
+          <view class="td">1</view>
+          <view class="td">highjump</view>
+          <view class="td">13092837629</view>
+          <view class="td">1000</view>
+      </view>
+      </block>
+    </view>
+  </view>
+</view>
+

@@ -10,6 +10,7 @@
     "pages/manage/member/list",
     "pages/manage/user/list",
     "pages/manage/partner/list",
+    "pages/manage/device/list",
     "pages/profile/profile",
     "pages/info/curelist"
   ],

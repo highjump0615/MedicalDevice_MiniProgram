@@ -86,7 +86,7 @@ button[type="primary"] {
 }
 
 .td {
-  padding: 10px;
+  padding: 10px 0px;
   text-align: center;
   border: 1px solid #bfbfbf;
   border-left: 0;
@@ -127,3 +127,13 @@ button[loading]::before {
   line-height: 100rpx;
   margin: 0 30rpx;
 }
+
+/* 查找结果 */
+.search-result text {
+  margin-left: 30rpx;
+  font-size: 30rpx;
+}
+.search-result .table {
+  margin-top: 10rpx;
+}
+

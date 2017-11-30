@@ -14,14 +14,6 @@ button {
   margin: 50rpx 30rpx;
 }
 
-.search-result text {
-  margin-left: 30rpx;
-  font-size: 30rpx;
-}
-.table {
-  margin-top: 10rpx;
-}
-
 .tr .td:nth-child(1) {
   flex: 10;
 }

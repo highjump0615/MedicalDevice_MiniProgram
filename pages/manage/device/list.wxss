@@ -1,0 +1,33 @@
+/* pages/manage/device/list.wxss */
+.nav-item {
+  font-size: 30rpx;
+}
+
+.nav-item .text-name {
+  font-size: 30rpx;
+}
+
+button {
+  margin: 20rpx 30rpx 0rpx 30rpx;
+}
+
+/* 查找结果 */
+.search-result {
+  margin-top: 20rpx;
+}
+
+.tr .td:nth-child(1) {
+  flex: 12;
+}
+
+.tr .td:nth-child(2) {
+  flex: 40;
+}
+
+.tr .td:nth-child(3) {
+  flex: 30;
+}
+
+.tr .td:nth-child(4) {
+  flex: 30;
+}
