@@ -1,0 +1,37 @@
+<!--pages/manage/partner/list.wxml-->
+
+<view class="flex-row flex-center header">
+  <view class="search">
+    <input placeholder="昵称、手机号" />
+    <button class="but-transparent color-theme">查找</button>
+  </view>
+  <navigator url="create">
+    <button class="but-transparent color-theme">新合伙人</button>
+  </navigator>
+</view>
+
+<!-- 表格 -->
+<view class="table">
+  <!-- 表头 -->
+  <view class="thead">
+    <view class="tr">
+        <view class="td">序号</view>
+        <view class="td">昵称</view>
+        <view class="td">手机号</view>
+        <view class="td">设备数量</view>
+    </view>
+  </view>
+
+  <!-- 内容-->
+  <view class="tbody">
+    <block wx:for="{{[0,1,2,3,4]}}" wx:for-item="i" wx:key="">
+    <view class="tr">
+        <view class="td">1</view>
+        <view class="td">highjump</view>
+        <view class="td">13092837629</view>
+        <view class="td">1000</view>
+    </view>
+    </block>
+  </view>
+</view>
+

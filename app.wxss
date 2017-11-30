@@ -113,3 +113,13 @@ button[loading]::before {
   height: 24px;
   margin-right: 20rpx;
 }
+
+/* 列表页面表头 */
+.header {
+  background-color: #fafafa;
+}
+.header button {
+  font-size: 30rpx;
+  line-height: 100rpx;
+  margin: 0 30rpx;
+}

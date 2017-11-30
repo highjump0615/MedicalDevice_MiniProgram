@@ -8,6 +8,7 @@
     "pages/logs/logs",
     "pages/manage/manage",
     "pages/manage/user/list",
+    "pages/manage/partner/list",
     "pages/profile/profile",
     "pages/info/curelist"
   ],

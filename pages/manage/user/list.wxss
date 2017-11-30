@@ -1,13 +1,7 @@
 /* pages/manage/user/list.wxss */
 
 .header {
-  background: solid #fafafa;
   justify-content: flex-end;
-}
-.header button {
-  font-size: 30rpx;
-  line-height: 100rpx;
-  margin: 0 30rpx;
 }
 
 .tr .td:nth-child(1) {
