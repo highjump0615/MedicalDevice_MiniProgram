@@ -12,7 +12,7 @@
     <view class="nav-item bottom-border" bindtap="gotoCureList">
       <text class="text-name flex-rest-width">理疗</text>
       <view class="flex-row">
-        <text class="text-right">105次</text>
+        <text class="text-right">{{userInfo.countTreat}} 次</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
@@ -21,7 +21,7 @@
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">积分</text>
       <view class="flex-row">
-        <text class="text-right">1200分</text>
+        <text class="text-right">{{userInfo.totalCredit}} 分</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
@@ -30,7 +30,7 @@
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">提成</text>
       <view class="flex-row">
-        <text class="text-right">100元</text>
+        <text class="text-right">{{userInfo.totalCommission}} 元</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
@@ -39,7 +39,7 @@
     <view class="nav-item bottom-border">
       <text class="text-name flex-rest-width">管理员</text>
       <view class="flex-row">
-        <text class="text-right">25人</text>
+        <text class="text-right">{{userInfo.countDevAdmin}} 人</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>

@@ -84,3 +84,18 @@ button[type="primary"] {
   border-left: 0;
   border-top: 0;
 }
+
+/* 页面 */
+.no-notice {
+  text-align: center;
+  margin-top: 300rpx;
+  font-size: 28rpx;
+  color: #a0a0a0;
+}
+
+/* 按钮 */
+button[loading]::before {
+  width: 24px;
+  height: 24px;
+  margin-right: 20rpx;
+}

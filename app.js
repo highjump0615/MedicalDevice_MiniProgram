@@ -14,6 +14,11 @@ App({
       success: res => {
         console.log(res.userInfo);
         
+        // 已有用户数据
+        if (that.globalData.currentUser) {
+          return;
+        }
+        
         that.globalData.currentUser = new User(res.userInfo);
 
         // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回

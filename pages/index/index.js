@@ -2,9 +2,11 @@
 //获取应用实例
 const app = getApp();
 var api = require('../../utils/api.js');
+var gstrCode;
 
 Page({
   data: {
+    isChecking: true
   },
 
   //事件处理函数
@@ -18,8 +20,70 @@ Page({
     // 检查3rd session
     var thirdSession = wx.getStorageSync('thirdSession');
     if (thirdSession) {
-      this.set3rdSession(thirdSession);
-    }    
+      // 获取已保存的用户信息
+      app.globalData.thirdSession = thirdSession;
+
+      var userInfo = wx.getStorageSync('userInfo');
+      app.globalData.currentUser = userInfo;
+
+      // 进入主页面
+      this.gotoMain();
+
+      return;
+    }
+
+    var that = this;
+
+    // 登录
+    wx.login({
+      success: res => {
+        gstrCode = res.code;
+        
+        //
+        // 建立后台回话
+        //
+        var paramData = {
+          action: 'createSession',
+          code: gstrCode,
+        };
+
+        api.postRequest(paramData, 
+          function success(res) {
+            if (res.data.result < 0) {
+              // 失败
+              return;
+            }
+
+            // 保存session
+            app.globalData.thirdSession = res.data['3rd_session'];
+            wx.setStorageSync('thirdSession', res.data['3rd_session']);
+
+            // 用户已存在
+            if (res.data.result == 1) {
+              // 获取用户角色
+              that.getUserRole();
+              return;
+            }
+
+            // 需要注册，亮起“进入”按钮
+            that.makeMainAvailable();
+          },
+          function fail(err) {
+          },
+          function complete() {
+          }
+        );
+      }
+    });
+  },
+
+  /**
+   * 亮起“进入”按钮
+   */
+  makeMainAvailable: function () {
+    this.setData({
+      isChecking: false
+    });
   },
 
   getPhoneNumber: function(e) {
@@ -35,50 +99,18 @@ Page({
       return;
     }
 
-    // 登录
-    wx.login({
-      success: res => {
-        //
-        // 建立后台回话
-        //
-        var currentUser = app.globalData.currentUser;
-        var paramData = {
-          action: 'createSession',
-          code: res.code,
-          nickname: currentUser.nickName,
-          avatarurl: currentUser.avatarUrl,
-          gender: currentUser.gender,
-          encryptedData: e.detail.encryptedData,
-          iv: e.detail.iv
-        };
-
-        api.postRequest(paramData, 
-          function success(res) {
-            if (res.data.result < 0) {
-              // 失败
-              return;
-            }
-
-            that.getUserRole(res.data['3rd_session']);
-          },
-          function fail(err) {
-          },
-          function complete() {
-          }
-        );
-      }
-    });
-  },
-
-  /**
-   * 获取用户角色
-   */
-  getUserRole: function (thirdSession) {
-    var that = this;
-    
+    //
+    // 注册用户
+    //
+    var currentUser = app.globalData.currentUser;
     var paramData = {
-      action: 'getUserRole',
-      '3rd_session': thirdSession,
+      action: 'registerUser',
+      '3rd_session': app.globalData.thirdSession,
+      nickname: currentUser.nickName,
+      gender: currentUser.gender,
+      userid: '',
+      encryptedData: e.detail.encryptedData,
+      iv: e.detail.iv
     };
 
     api.postRequest(paramData, 
@@ -88,8 +120,44 @@ Page({
           return;
         }
 
-        wx.setStorageSync('thirdSession', thirdSession);
-        that.set3rdSession(thirdSession);
+        // 进入主页面
+        that.gotoMain();
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
+  },
+
+  /**
+   * 获取用户角色
+   */
+  getUserRole: function () {
+    var that = this;
+
+    var paramData = {
+      action: 'getUserRole',
+      '3rd_session': app.globalData.thirdSession,
+    };
+
+    api.postRequest(paramData, 
+      function success(res) {
+        if (res.data.result < 0) {
+          // 失败
+          that.makeMainAvailable();
+          return;
+        }
+
+        var currentUser = app.globalData.currentUser;
+        currentUser.setRoleFromString(res.data.userrole);
+
+        // 保存用户信息
+        wx.setStorageSync('userInfo', currentUser);
+        app.globalData.currentUser = currentUser;
+
+        // 进入主页面
+        that.gotoMain();
       },
       function fail(err) {
       },
@@ -101,8 +169,7 @@ Page({
   /**
    * 设置Session
    */
-  set3rdSession: function(session) {
-    app.globalData.thirdSession = session;
+  gotoMain: function () {
 
     // 机智云匿名登录
   //   api.gwLogin(null, 

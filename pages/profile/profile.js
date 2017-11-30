@@ -1,6 +1,7 @@
 // pages/profile/profile.js
 
 const app = getApp();
+var api = require('../../utils/api.js');
 
 Page({
 
@@ -8,37 +9,62 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+  },
+
+  /**
+   * 提取我的信息
+   */
+  getUserInfoDetail: function() {
+    var currentUser = app.globalData.currentUser;
+    var that = this;
+
+    this.setData({
+      userInfo: currentUser
+    });
+
+    //
+    // 提取我的信息
+    //
+    var paramData = {
+      action: 'getMember',
+      '3rd_session': app.globalData.thirdSession
+    };
+
+    api.postRequest(paramData, 
+      function success(res) {
+        if (res.data.result < 0) {
+          // 失败
+          return;
         }
-      })
-    }
+
+        // 数据
+        currentUser.phone = res.data.phonenumber;
+        currentUser.isPartner = res.data.ispartner;
+        // 累计积分
+        currentUser.totalCredit = res.data.creditstotal;
+        // 理疗数次
+        currentUser.countTreat = res.data.treattimes;
+        // 提成
+        currentUser.totalCommission = res.data.commissiontotal;
+        // 合伙人设备管理员数量
+        currentUser.countDevAdmin = res.data.deviceadministrator;
+
+        that.setData({
+          userInfo: currentUser
+        });
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
   },
 
   /**
@@ -52,7 +78,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    // 获取当前用户
+    if (app.globalData.currentUser) {
+      this.getUserInfoDetail();
+    }
+    else {
+      app.userInfoReadyCallback = res => {
+        this.getUserInfoDetail();
+      }
+    }  
   },
 
   /**

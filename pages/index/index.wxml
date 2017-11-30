@@ -10,6 +10,6 @@
   </text>
 
   <!-- 进入 -->
-  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">进入</button>
+  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" loading="{{isChecking}}" disabled="{{isChecking}}">进入</button>
 
 </view>
