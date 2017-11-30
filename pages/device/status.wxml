@@ -1,0 +1,27 @@
+<!--pages/device/status.wxml-->
+
+<view class="container">
+  <view class="status-with-bar">
+    <!-- 标题 -->
+    <view class="title">设备能级</view>
+    <!-- 图标 -->  
+    <view class="graph">
+      <block wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" wx:for-item="i" wx:key="">
+        <view wx:if="{{index < energy}}" class="red-bg">{{i}}</view>
+        <view wx:else>{{i}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="status-with-bar mt-50">
+      <!-- 标题 -->
+      <view class="title">剩余时间</view>
+      <!-- 图标 -->  
+      <view class="graph">
+        <block wx:for="{{[9,8,7,6,5,4,3,2,1,0]}}" wx:for-item="i" wx:key="">
+          <view wx:if="{{index < remaining}}" class="green-bg">{{i}}</view>
+          <view wx:else>{{i}}</view>
+        </block>
+      </view>
+    </view>
+</view>

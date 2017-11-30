@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/home/home",
+    "pages/device/status",
     "pages/device/configure",
     "pages/device/configure/success",
     "pages/device/wifilist",

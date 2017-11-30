@@ -16,6 +16,17 @@ button[type="primary"] {
   background-color: #1098a6;
 }
 
+/* 通用样式 */
+.mt-30 {
+  margin-top: 30rpx;
+}
+.mt-40 {
+  margin-top: 40rpx;
+}
+.mt-50 {
+  margin-top: 50rpx;
+}
+
 /* 列表样式 */
 .nav-items {
   margin-top: 30rpx;
