@@ -50,6 +50,7 @@ button[type="primary"] {
   align-self: center;
 }
 
+/* Flex布局 */
 .flex-rest-width {
   flex: 1;
 }
@@ -58,6 +59,10 @@ button[type="primary"] {
   display: flex;
   align-items: center;
 }
+.flex-row.flex-center {
+  align-items: center;
+}
+
 
 /* 表格 */
 .table {
@@ -94,6 +99,15 @@ button[type="primary"] {
 }
 
 /* 按钮 */
+.but-transparent {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+.but-transparent::after {
+  border: none;
+}
+
 button[loading]::before {
   width: 24px;
   height: 24px;

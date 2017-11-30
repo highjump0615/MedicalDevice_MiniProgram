@@ -7,6 +7,7 @@
     "pages/device/wifilist",
     "pages/logs/logs",
     "pages/manage/manage",
+    "pages/manage/user/list",
     "pages/profile/profile",
     "pages/info/curelist"
   ],

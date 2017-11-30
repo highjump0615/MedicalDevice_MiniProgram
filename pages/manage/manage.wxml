@@ -21,13 +21,15 @@
       </view>
   
       <!-- 系统用户 -->
-      <view class="nav-item bottom-border">
-        <text class="text-name flex-rest-width">系统用户</text>
-        <view class="flex-item-right flex-row">
-          <text class="text-right">{{countUser}}</text>
-          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+      <navigator url="user/list">
+        <view class="nav-item bottom-border">
+          <text class="text-name flex-rest-width">系统用户</text>
+          <view class="flex-item-right flex-row">
+            <text class="text-right">{{countUser}}</text>
+            <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+          </view>
         </view>
-      </view>
+      </navigator>
   
       <!-- 系统设备 -->
       <view class="nav-item bottom-border">

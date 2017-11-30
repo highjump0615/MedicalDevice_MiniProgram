@@ -21,12 +21,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "home",
-					"pathName": "pages/home/home",
+					"pathName": "pages/manage/user/list",
 					"query": ""
 				}
 			]

@@ -1,0 +1,27 @@
+/* pages/manage/user/list.wxss */
+
+.header {
+  background: solid #fafafa;
+  justify-content: flex-end;
+}
+.header button {
+  font-size: 30rpx;
+  line-height: 100rpx;
+  margin: 0 30rpx;
+}
+
+.tr .td:nth-child(1) {
+  flex: 10;
+}
+
+.tr .td:nth-child(2) {
+  flex: 32;
+}
+
+.tr .td:nth-child(3) {
+  flex: 35;
+}
+
+.tr .td:nth-child(4) {
+  flex: 20;
+}
