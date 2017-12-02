@@ -17,6 +17,12 @@ button[type="primary"] {
 }
 
 /* 通用样式 */
+.mt-15 {
+  margin-top: 15rpx;
+}
+.mt-20 {
+  margin-top: 20rpx;
+}
 .mt-30 {
   margin-top: 30rpx;
 }
@@ -25,6 +31,10 @@ button[type="primary"] {
 }
 .mt-50 {
   margin-top: 50rpx;
+}
+
+.full-width {
+  width: 100%;
 }
 
 /* 列表样式 */

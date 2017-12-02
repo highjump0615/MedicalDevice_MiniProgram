@@ -26,7 +26,7 @@
 				{
 					"id": 0,
 					"name": "home",
-					"pathName": "pages/device/status",
+					"pathName": "pages/manage/use",
 					"query": ""
 				}
 			]
