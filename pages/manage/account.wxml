@@ -1,0 +1,47 @@
+<!--pages/manage/account.wxml-->
+
+<view class="container">
+  <!-- 当前使用情况 -->
+  <view class="full-width">
+    <view class="flex-row">
+      <text class="flex-rest-width">收入余额</text>
+      <text>192</text>
+    </view>
+
+    <view class="flex-row mt-15">
+      <text class="flex-rest-width">收入累计：</text>
+      <text>192</text>
+    </view>
+
+    <view class="flex-row mt-15">
+      <text class="flex-rest-width">支出余额：</text>
+      <text>192</text>
+    </view>
+
+    <view class="flex-row mt-15">
+      <text class="flex-rest-width">支出累计：</text>
+      <text>192</text>
+    </view>
+
+    <!-- 选择年月 -->
+    <view class="mt-50 select-year">
+      <view>
+        年
+      </view>
+      <view>
+        月
+      </view>    
+    </view>
+  
+    <!-- 查找 -->
+    <button type="primary" class="mt-50">统计</button>
+  
+    <!-- 查找结果 -->
+    <view class="search-result mt-40">
+      <text>统计结果：</text>
+    </view>
+
+  </view>
+  
+</view>
+

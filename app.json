@@ -13,6 +13,7 @@
     "pages/manage/partner/list",
     "pages/manage/device/list",
     "pages/manage/use",
+    "pages/manage/account",
     "pages/profile/profile",
     "pages/info/curelist"
   ],

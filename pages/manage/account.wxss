@@ -1,4 +1,4 @@
-/* pages/manage/use.wxss */
+/* pages/manage/account.wxss */
 
 .container {
   margin: 30rpx;

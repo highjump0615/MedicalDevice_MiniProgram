@@ -158,3 +158,18 @@ button[loading]::before {
   margin-top: 10rpx;
 }
 
+/* 年月选择*/
+.select-year {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dfdfd4;
+  border-bottom: 1px solid #dfdfd4;
+}
+.select-year view {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.select-year view:not(:last-child) {
+  border-right: 1px solid #dfdfd4;
+}
