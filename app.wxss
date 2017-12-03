@@ -37,16 +37,21 @@ button[type="primary"] {
   width: 100%;
 }
 
-/* 列表样式 */
-.nav-items {
-  margin-top: 30rpx;
-  background: white;
-}
 .top-border {
   border-top: 1px solid #efeff4;
 }
 .bottom-border {
   border-bottom: 1px solid #efeff4;
+}
+
+
+/* 列表样式 */
+.nav-items {
+  margin-top: 30rpx;
+  background: white;
+}
+.nav-items input {
+  font-size: 34rpx;
 }
 
 .nav-item {

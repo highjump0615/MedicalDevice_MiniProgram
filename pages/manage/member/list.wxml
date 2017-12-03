@@ -1,8 +1,8 @@
 <!--pages/manage/member/list.wxml-->
 
 <view class="flex-row flex-center header">
-  <text>会员总数：10人</text>
-  <text>当月新增：10人</text>
+  <text>会员总数：{{totalMember}}人</text>
+  <text>当月新增：{{increased}}人</text>
 </view>
 
 <view class="nav-items top-border bottom-border">
@@ -10,27 +10,27 @@
   <view class="nav-item bottom-border">
     <view class="flex-row flex-rest-width">
       <text class="text-name">昵称：</text>
-      <input class="nav-item-content flex-rest-width" bindinput="onInputName" />
+      <input class="nav-item-content flex-rest-width" bindinput="onInputName" placeholder="请输入昵称" />
     </view>
   </view>
   <!-- 手机号 -->
   <view class="nav-item">
     <view class="flex-row flex-rest-width">
       <text class="text-name">手机号：</text>
-      <input class="nav-item-content flex-rest-width" bindinput="onInputName" />
+      <input class="nav-item-content flex-rest-width" bindinput="onInputPhone" placeholder="请输入手机号" />
     </view>
   </view>
 </view>
 
 <!-- 查找 -->
-<button type="primary">查找</button>
+<button type="primary" bindtap="doSearch" loading="{{isInProgress}}">查找</button>
 
 <!-- 查找结果 -->
-<view class="search-result">
+<view class="search-result" wx:if="{{members}}">
   <text>查找结果：</text>
 
   <!-- 表格 -->
-  <view class="table">
+  <view class="table" wx:if="{{members.length > 0}}">
     <!-- 表头 -->
     <view class="thead">
       <view class="tr">
@@ -43,15 +43,18 @@
   
     <!-- 内容-->
     <view class="tbody">
-      <block wx:for="{{[0,1,2,3,4]}}" wx:for-item="i" wx:key="">
+      <block wx:for="{{members}}" wx:for-item="member" wx:key="">
       <view class="tr">
-          <view class="td">1</view>
-          <view class="td">highjump</view>
-          <view class="td">13092837629</view>
-          <view class="td">1000</view>
+          <view class="td">{{index + 1}}</view>
+          <view class="td">{{member.nickname}}</view>
+          <view class="td">{{member.phonenumber}}</view>
+          <view class="td">{{member.registertime}}</view>
       </view>
       </block>
     </view>
+  </view>
+  <view wx:else class="no-notice">
+    <text>暂时没有匹配的内容</text>
   </view>
 </view>
 

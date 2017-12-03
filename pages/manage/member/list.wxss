@@ -19,13 +19,13 @@ button {
 }
 
 .tr .td:nth-child(2) {
-  flex: 32;
+  flex: 28;
 }
 
 .tr .td:nth-child(3) {
-  flex: 35;
+  flex: 30;
 }
 
 .tr .td:nth-child(4) {
-  flex: 20;
+  flex: 28;
 }

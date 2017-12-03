@@ -10,13 +10,6 @@ Page({
    */
   data: {
     userInfo: null,
-
-    // 数据
-    countMember: 0,
-    countPartner: 0,
-    countUser: 0,
-    countDevice: 0,
-    countUseTimes: 0
   },
 
   /**
