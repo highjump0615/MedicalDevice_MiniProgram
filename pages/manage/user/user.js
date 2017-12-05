@@ -3,6 +3,9 @@ var User = require('../../../model/User.js');
 const app = getApp();
 var api = require('../../../utils/api.js');
 
+var gnTypeUser = 0;
+var gnTypeDeviceManager = 1;
+
 
 Page({
 
@@ -11,6 +14,7 @@ Page({
    */
   data: {
     id: 0,
+    type: gnTypeUser,
 
     // 界面效果
     isInProgress: false
@@ -20,11 +24,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {  
+    var strRole = User.Roles[0];
+    if (options.type == gnTypeDeviceManager) {
+      strRole = User.Roles[1];
+    }
+
     this.setData({
       id: parseInt(options.id),
       name: options.name,
       phone: options.phone,
-      role: options.role ? options.role : '普通会员'
+      role: options.role ? options.role : strRole
     });
   },
 
@@ -32,6 +41,11 @@ Page({
    * 选择角色
    */
   onSelectRole: function (e) {
+    // 设备管理员没法选择角色
+    if (this.data.type == gnTypeDeviceManager) {
+      return;
+    }
+
     var that = this;
 
     wx.showActionSheet({

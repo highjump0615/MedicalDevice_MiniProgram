@@ -1,20 +1,19 @@
-<!--pages/manage/user/list.wxml-->
+<!--pages/profile/devicemanagers.wxml-->
 
 <view class="flex-row flex-center header">
-  <navigator url="create?type=0">
-    <button class="but-transparent color-theme">添加新用户</button>
+  <navigator url="../manage/user/create?type=1">
+    <button class="but-transparent color-theme">添加新管理员</button>
   </navigator>
 </view>
 
 <!-- 表格 -->
-<view class="table">
+<view class="table" wx:if="{{items.length > 0}}">
   <!-- 表头 -->
   <view class="thead">
     <view class="tr">
       <view class="td">序号</view>
       <view class="td">昵称</view>
       <view class="td">手机号</view>
-      <view class="td">用户角色</view>
     </view>
   </view>
 
@@ -26,9 +25,12 @@
         <view class="td">{{index + 1}}</view>
         <view class="td">{{user.nickname}}</view>
         <view class="td">{{user.phonenumber}}</view>
-        <view class="td">{{user.userrole}}</view>
       </view>
     </navigator>
     </block>
   </view>
 </view>
+<view wx:else class="no-notice">
+  <text>暂时没有设备管理员</text>
+</view>
+  

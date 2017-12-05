@@ -1,9 +1,6 @@
-// pages/manage/user/create.js
+// pages/profile/devicemanagers.js
 const app = getApp();
-var api = require('../../../utils/api.js');
-
-var gnTypeUser = 0;
-var gnTypeDeviceManager = 1;
+var api = require('../../utils/api.js');
 
 Page({
 
@@ -11,68 +8,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type: gnTypeUser,
-
-    isInProgress: false,
-    
-    // 查找
-    searchName: '',
-    searchPhone: '',
-    members: null  
+    items: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 新用户
-    if (options.type == gnTypeDeviceManager) {
-      wx.setNavigationBarTitle({
-        title: '添加新管理员'
-      });
-    }
-
-    this.setData({
-      type: options.type
-    });
+  
   },
 
   /**
-   * 输入昵称
+   * 获取列表
    */
-  onInputName: function (e) {
-    this.setData({
-      searchName: e.detail.value
-    });
-  },
-
-  /**
-   * 输入手机号
-   */
-  onInputPhone: function (e) {
-    this.setData({
-      searchPhone: e.detail.value
-    });
-  },
-
-  /**
-   * 点击查找
-   */
-  doSearch: function (e) {
+  getList: function (isRefresh) {
     var that = this;
 
-    that.setData({
-      isInProgress: true
-    });
-    
+    // 显示正在加载
+    wx.showNavigationBarLoading();
+
     //
-    // 提取我的信息
+    // 设备使用统计
     //
     var paramData = {
-      action: 'queryMember',
-      '3rd_session': app.globalData.thirdSession,
-      nickname: that.data.searchName,
-      phonenumber: that.data.searchPhone,
+      action: 'getDeviceAdministrator',
+      '3rd_session': app.globalData.thirdSession
     };
 
     api.postRequest(paramData, 
@@ -82,21 +42,20 @@ Page({
           return;
         }
 
-        // 数据
+        // 更新数据
         that.setData({
-          members: res.data.members
+          items: res.data.deviceadministrators
         });
       },
       function fail(err) {
       },
       function complete() {
-        that.setData({
-          isInProgress: false
-        });
+        wx.stopPullDownRefresh();
+        // 隐藏正在加载
+        wx.hideNavigationBarLoading();
       }
     );
   },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -109,7 +68,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getList(true);  
   },
 
   /**

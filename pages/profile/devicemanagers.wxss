@@ -1,0 +1,17 @@
+/* pages/profile/devicemanagers.wxss */
+
+.header {
+  justify-content: flex-end;
+}
+
+.tr .td:nth-child(1) {
+  flex: 10;
+}
+
+.tr .td:nth-child(2) {
+  flex: 44;
+}
+
+.tr .td:nth-child(3) {
+  flex: 43;
+}

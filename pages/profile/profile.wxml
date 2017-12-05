@@ -31,22 +31,26 @@
     </navigator>
 
     <!-- 提成 -->
-    <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">提成</text>
-      <view class="flex-row">
-        <text class="text-right">{{userInfo.totalCommission}} 元</text>
-        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+    <navigator url="commissions">
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">提成</text>
+        <view class="flex-row">
+          <text class="text-right">{{userInfo.totalCommission}} 元</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
       </view>
-    </view>
+    </navigator>
 
     <!-- 管理员 -->
-    <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">管理员</text>
-      <view class="flex-row">
-        <text class="text-right">{{userInfo.countDevAdmin}} 人</text>
-        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+    <navigator url="devicemanagers">
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">管理员</text>
+        <view class="flex-row">
+          <text class="text-right">{{userInfo.countDevAdmin}} 人</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
       </view>
-    </view>
+    </navigator>
 
     <!-- 使用定价 -->
     <view class="nav-item bottom-border">

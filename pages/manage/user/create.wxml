@@ -11,7 +11,7 @@
   <view class="nav-item">
     <view class="flex-row flex-rest-width">
       <text class="text-name">手机号：</text>
-      <input class="nav-item-content flex-rest-width" bindinput="onInputPhone" placeholder="请输入手机号" />
+      <input class="nav-item-content flex-rest-width" type="number" bindinput="onInputPhone" placeholder="请输入手机号" />
     </view>
   </view>
 </view>
@@ -37,7 +37,7 @@
     <!-- 内容-->
     <view class="tbody">
       <block wx:for="{{members}}" wx:for-item="member" wx:key="">
-      <navigator url="user?id={{member.userid}}&name={{member.nickname}}&phone={{member.phonenumber}}">
+      <navigator url="user?type={{type}}&id={{member.userid}}&name={{member.nickname}}&phone={{member.phonenumber}}">
         <view class="tr">
           <view class="td">{{index + 1}}</view>
           <view class="td">{{member.nickname}}</view>

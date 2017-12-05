@@ -1,0 +1,10 @@
+/* pages/profile/commissions.wxss */
+
+.header-info {
+  margin: 30rpx;
+  font-size: 30rpx;
+}
+
+.header-info button {
+  margin: 0;
+}

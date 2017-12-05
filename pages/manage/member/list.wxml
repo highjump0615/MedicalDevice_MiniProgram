@@ -17,7 +17,7 @@
   <view class="nav-item">
     <view class="flex-row flex-rest-width">
       <text class="text-name">手机号：</text>
-      <input class="nav-item-content flex-rest-width" bindinput="onInputPhone" placeholder="请输入手机号" />
+      <input class="nav-item-content flex-rest-width" type="number" bindinput="onInputPhone" placeholder="请输入手机号" />
     </view>
   </view>
 </view>

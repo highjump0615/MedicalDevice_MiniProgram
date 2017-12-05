@@ -32,6 +32,9 @@ button[type="primary"] {
 .mt-50 {
   margin-top: 50rpx;
 }
+.ml-30 {
+  margin-left: 30rpx;
+}
 
 .full-width {
   width: 100%;
