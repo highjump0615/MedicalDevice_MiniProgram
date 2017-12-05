@@ -1,4 +1,4 @@
-// pages/info/curelist.js
+// pages/profile/credits.js
 Page({
 
   /**

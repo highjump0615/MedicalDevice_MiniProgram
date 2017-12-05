@@ -9,13 +9,15 @@
   <!-- 菜单 -->
   <view class="nav-items">
     <!-- 理疗 -->
-    <view class="nav-item bottom-border" bindtap="gotoCureList">
-      <text class="text-name flex-rest-width">理疗</text>
-      <view class="flex-row">
-        <text class="text-right">{{userInfo.countTreat}} 次</text>
-        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+    <navigator url="treats">
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">理疗</text>
+        <view class="flex-row">
+          <text class="text-right">{{userInfo.countTreat}} 次</text>
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
       </view>
-    </view>
+    </navigator>
 
     <!-- 积分 -->
     <view class="nav-item bottom-border">

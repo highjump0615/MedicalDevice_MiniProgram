@@ -1,6 +1,5 @@
-/* pages/info/curelist.wxss */
-.container {
-  margin: 30rpx;
+/* pages/profile/treats.wxss */
+.table {
 }
 
 .tr .td:nth-child(1) {

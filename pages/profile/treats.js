@@ -1,7 +1,10 @@
-// pages/profile/profile.js
-
+// pages/profile/treats.js
 const app = getApp();
 var api = require('../../utils/api.js');
+
+// 加载参数
+var gnPageNumber = 1;
+var gnPageSize = 10;
 
 Page({
 
@@ -9,31 +12,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null
+    items: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getList(true);
   },
 
   /**
-   * 提取我的信息
+   * 获取列表
    */
-  getUserInfoDetail: function() {
-    var currentUser = app.globalData.currentUser;
+  getList: function (isRefresh) {
     var that = this;
+    var nPageNumber = gnPageNumber + 1;
 
-    this.setData({
-      userInfo: currentUser
-    });
+    if (isRefresh) {
+      nPageNumber = 1;
+    }
+
+    // 显示正在加载
+    wx.showNavigationBarLoading();
 
     //
-    // 提取我的信息
+    // 设备使用统计
     //
     var paramData = {
-      action: 'getMember',
+      action: 'getTreat',
+      pageNumber: nPageNumber,
+      pageSize: gnPageSize,
       '3rd_session': app.globalData.thirdSession
     };
 
@@ -44,25 +53,28 @@ Page({
           return;
         }
 
-        // 数据
-        currentUser.phone = res.data.phonenumber;
-        currentUser.isPartner = res.data.ispartner;
-        // 累计积分
-        currentUser.totalCredit = res.data.creditstotal;
-        // 理疗数次
-        currentUser.countTreat = res.data.treattimes;
-        // 提成
-        currentUser.totalCommission = res.data.commissiontotal;
-        // 合伙人设备管理员数量
-        currentUser.countDevAdmin = res.data.deviceadministrator;
+        gnPageNumber = nPageNumber;
 
+        var records = that.data.items;
+        if (isRefresh) {
+          records = [];
+        }
+        
+        for (var i = 0; i < res.data.records.length; i++) {
+          records.push(res.data.records[i]);
+        }
+
+        // 更新数据
         that.setData({
-          userInfo: currentUser
+          shops: records
         });
       },
       function fail(err) {
       },
       function complete() {
+        wx.stopPullDownRefresh();
+        // 隐藏正在加载
+        wx.hideNavigationBarLoading();
       }
     );
   },
@@ -78,15 +90,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 获取当前用户
-    if (app.globalData.currentUser) {
-      this.getUserInfoDetail();
-    }
-    else {
-      app.userInfoReadyCallback = res => {
-        this.getUserInfoDetail();
-      }
-    }  
+  
   },
 
   /**
@@ -123,5 +127,4 @@ Page({
   onShareAppMessage: function () {
   
   }
-
 })

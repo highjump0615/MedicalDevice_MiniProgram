@@ -20,7 +20,8 @@
     "pages/manage/use",
     "pages/manage/account",
     "pages/profile/profile",
-    "pages/info/curelist"
+    "pages/profile/treats",
+    "pages/profile/credits"
   ],
   "window":{
     "backgroundTextStyle":"light",
