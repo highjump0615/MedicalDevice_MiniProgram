@@ -1,8 +1,7 @@
-// pages/manage/device/list.js
+// pages/manage/device/create.js
 var Device = require('../../../model/Device.js');
 const app = getApp();
 var api = require('../../../utils/api.js');
-
 
 Page({
 
@@ -10,21 +9,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 界面效果
     isInProgress: false,
 
-    // 查找
-    searchCode: '',
-    searchType: '',
-    searchState: '',
-    devices: null
+    // 数据
+    id: '',
+    type: Device.Types[0],
+    state: Device.States[0]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
@@ -45,7 +42,7 @@ Page({
         var strMac = Device.extractMac(res.result);
         if (strMac) {
           that.setData({
-            searchCode: strMac
+            code: strMac
           });
         }
       }
@@ -62,7 +59,7 @@ Page({
       itemList: Device.Types,
       success: function (res) {
         that.setData({
-          searchType: Device.Types[res.tapIndex]
+          type: Device.Types[res.tapIndex]
         });
       }
     });
@@ -78,16 +75,33 @@ Page({
       itemList: Device.States,
       success: function (res) {
         that.setData({
-          searchState: Device.States[res.tapIndex]
+          state: Device.States[res.tapIndex]
         });
       }
     });
   },
 
   /**
-   * 查找设备
+   * 提交
    */
-  onSearch: function (e) {
+  onSubmit: function (e) {
+    //
+    // 检查输入项
+    //
+    if (!this.data.code) {
+      // 失败
+      wx.showModal({
+        title: '请输入设备参数',
+        content: '设备编码不能为空',
+        showCancel: false
+      });
+
+      return;
+    }
+
+    //
+    // 保存设备
+    //
     var that = this;
     
     that.setData({
@@ -95,11 +109,12 @@ Page({
     });
     
     var paramData = {
-      action: 'queryDevices',
+      action: 'saveDevice',
       '3rd_session': app.globalData.thirdSession,
-      devicecode: that.data.searchCode,
-      devicetype: that.data.searchType,
-      status: that.data.searchState
+      devicecode: that.data.code,
+      devicetype: that.data.type,
+      status: that.data.state,
+      deviceid: that.data.id
     };
 
     api.postRequest(paramData, 
@@ -109,10 +124,11 @@ Page({
           return;
         }
 
-        // 数据
-        that.setData({
-          devices: res.data.devices
+        // 返回
+        wx.showToast({
+          title: '添加成功'
         });
+        wx.navigateBack();
       },
       function fail(err) {
       },

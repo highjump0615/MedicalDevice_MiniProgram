@@ -9,6 +9,9 @@ var Device = function (mac) {
   // 数据
 }
 
+Device.Types = ['通络盆', '通络机'];
+Device.States = ['库存', '在途', '租用', '出售', '损坏'];
+
 /**
  * 提取mac地址
  * @param {*} qrcode 

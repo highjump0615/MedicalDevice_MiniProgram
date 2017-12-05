@@ -86,7 +86,9 @@ button[type="primary"] {
 .flex-rest-width {
   flex: 1;
 }
-
+.flex-space {
+  justify-content: space-between;
+}
 .flex-row {
   display: flex;
   align-items: center;
@@ -178,6 +180,9 @@ button[loading]::before {
   text-align: center;
   padding: 20rpx 0;
 }
+.select-year picker {
+  flex: 1;
+}  
 .select-year view:not(:last-child) {
   border-right: 1px solid #dfdfd4;
 }

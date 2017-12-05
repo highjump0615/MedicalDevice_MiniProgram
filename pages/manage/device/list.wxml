@@ -4,19 +4,21 @@
   <!-- 设备编码 -->
   <view class="nav-item" bindtap="onDevCode">
     <view class="flex-row flex-rest-width">
-      <input class="nav-item-content flex-rest-width" placeholder="设备编码" bindinput="onInputCode" />
+      <input class="nav-item-content flex-rest-width" placeholder="设备编码" bindinput="onInputCode" value="{{searchCode}}" />
     </view>
   </view>
   <!-- 设备类型 -->
-  <view class="nav-item">
-    <text class="text-name flex-rest-width">设备类型</text>
+  <view class="nav-item" bindtap="onSelectType">
+    <text wx:if="{{searchType}}" class="text-name flex-rest-width">{{searchType}}</text>
+    <text wx:else class="text-name flex-rest-width">设备类型</text>
     <view class="flex-row">
       <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
     </view>
   </view>
   <!-- 设备类型 -->
-  <view class="nav-item">
-    <text class="text-name flex-rest-width">设备状态</text>
+  <view class="nav-item" bindtap="onSelectState">
+    <text wx:if="{{searchState}}" class="text-name flex-rest-width">{{searchState}}</text>
+    <text wx:else class="text-name flex-rest-width">设备状态</text>
     <view class="flex-row">
       <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
     </view>
@@ -24,16 +26,18 @@
 </view>
 
 <!-- 查找 -->
-<button type="primary">查找</button>
+<button type="primary" bindtap="onSearch" loading="{{isInProgress}}">查找</button>
 <!-- 新添 -->
-<button type="primary">新添</button>
+<navigator url="create">
+  <button type="primary">新添</button>
+</navigator>
 
 <!-- 查找结果 -->
-<view class="search-result">
+<view class="search-result" wx:if="{{devices}}">
   <text>查找结果：</text>
 
   <!-- 表格 -->
-  <view class="table">
+  <view class="table" wx:if="{{devices.length > 0}}">
     <!-- 表头 -->
     <view class="thead">
       <view class="tr">
@@ -55,6 +59,9 @@
       </view>
       </block>
     </view>
+  </view>
+  <view wx:else class="no-notice">
+    <text>暂时没有匹配的内容</text>
   </view>
 </view>
 

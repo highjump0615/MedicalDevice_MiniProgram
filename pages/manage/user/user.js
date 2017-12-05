@@ -53,7 +53,7 @@ Page({
     that.setData({
       isInProgress: true
     });
-    
+  
     //
     // 提取我的信息
     //

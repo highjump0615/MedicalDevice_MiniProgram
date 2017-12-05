@@ -11,6 +11,14 @@ button {
   margin: 20rpx 30rpx 0rpx 30rpx;
 }
 
+navigator {
+  margin: 20rpx 30rpx 0rpx 30rpx;
+}
+navigator button {
+  margin: 0;
+}
+
+
 /* 查找结果 */
 .search-result {
   margin-top: 20rpx;

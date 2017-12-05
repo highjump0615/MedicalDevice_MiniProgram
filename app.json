@@ -16,6 +16,7 @@
     "pages/manage/partner/create",
     "pages/manage/partner/partner",
     "pages/manage/device/list",
+    "pages/manage/device/create",
     "pages/manage/use",
     "pages/manage/account",
     "pages/profile/profile",
