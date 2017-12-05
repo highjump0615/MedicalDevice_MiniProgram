@@ -66,7 +66,7 @@ Page({
 
         // 更新数据
         that.setData({
-          shops: records
+          items: records
         });
       },
       function fail(err) {

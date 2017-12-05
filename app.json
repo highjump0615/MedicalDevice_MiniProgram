@@ -21,7 +21,8 @@
     "pages/manage/account",
     "pages/profile/profile",
     "pages/profile/treats",
-    "pages/profile/credits"
+    "pages/profile/credits",
+    "pages/profile/commissions"
   ],
   "window":{
     "backgroundTextStyle":"light",
