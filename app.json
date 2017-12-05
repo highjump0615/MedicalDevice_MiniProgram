@@ -11,6 +11,7 @@
     "pages/manage/member/list",
     "pages/manage/user/list",
     "pages/manage/user/create",
+    "pages/manage/user/user",
     "pages/manage/partner/list",
     "pages/manage/partner/create",
     "pages/manage/partner/partner",

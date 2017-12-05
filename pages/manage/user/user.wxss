@@ -1,0 +1,9 @@
+/* pages/manage/user/user.wxss */
+
+.text-name {
+  width: 250rpx;
+}
+
+button {
+  margin: 50rpx 30rpx;
+}

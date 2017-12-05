@@ -1,0 +1,32 @@
+<!--pages/manage/user/user.wxml-->
+
+<view class="nav-items top-border bottom-border">
+  <!-- 昵称 -->
+  <view class="nav-item">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">昵称：</text>
+      <text>{{name}}</text>
+    </view>
+  </view>
+  <!-- 手机号 -->
+  <view class="nav-item">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">手机号：</text>
+      <text>{{phone}}</text>
+    </view>
+  </view>
+  <!-- 用户角色 -->
+  <view class="nav-item" bindtap="onSelectRole">
+    <view class="flex-row flex-center flex-rest-width">
+      <text class="text-name">用户角色：</text>
+      <text class="nav-item-content flex-rest-width">{{role}}</text>
+    </view>
+    <view class="flex-row flex-center">
+      <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
+    </view>
+  </view>
+</view>
+
+<!-- 确定 -->
+<button type="primary" bindtap="onSave" loading="{{isInProgress}}">确定</button>
+

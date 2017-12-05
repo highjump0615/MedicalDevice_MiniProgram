@@ -1,7 +1,7 @@
 <!--pages/manage/partner/partner.wxml-->
 <view class="nav-items top-border bottom-border">
   <!-- 昵称 -->
-  <view class="nav-item bottom-border">
+  <view class="nav-">
     <view class="flex-row flex-rest-width">
       <text class="text-name">昵称：</text>
       <text>{{nickName}}</text>

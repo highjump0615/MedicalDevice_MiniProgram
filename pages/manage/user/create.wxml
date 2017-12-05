@@ -1,2 +1,53 @@
 <!--pages/manage/user/create.wxml-->
-<text>pages/manage/user/create.wxml</text>
+<view class="nav-items top-border bottom-border">
+  <!-- 昵称 -->
+  <view class="nav-item">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">昵称：</text>
+      <input class="nav-item-content flex-rest-width" bindinput="onInputName" placeholder="请输入昵称" />
+    </view>
+  </view>
+  <!-- 手机号 -->
+  <view class="nav-item">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">手机号：</text>
+      <input class="nav-item-content flex-rest-width" bindinput="onInputPhone" placeholder="请输入手机号" />
+    </view>
+  </view>
+</view>
+
+<!-- 查找 -->
+<button type="primary" bindtap="doSearch" loading="{{isInProgress}}">查找</button>
+
+<!-- 查找结果 -->
+<view class="search-result" wx:if="{{members}}">
+  <text>查找结果：</text>
+
+  <!-- 表格 -->
+  <view class="table" wx:if="{{members.length > 0}}">
+    <!-- 表头 -->
+    <view class="thead">
+      <view class="tr">
+        <view class="td">序号</view>
+        <view class="td">昵称</view>
+        <view class="td">手机号</view>
+      </view>
+    </view>
+  
+    <!-- 内容-->
+    <view class="tbody">
+      <block wx:for="{{members}}" wx:for-item="member" wx:key="">
+      <navigator url="user?id={{member.userid}}&name={{member.nickname}}&phone={{member.phonenumber}}">
+        <view class="tr">
+          <view class="td">{{index + 1}}</view>
+          <view class="td">{{member.nickname}}</view>
+          <view class="td">{{member.phonenumber}}</view>
+        </view>
+      </navigator>
+      </block>
+    </view>
+  </view>
+  <view wx:else class="no-notice">
+    <text>暂时没有匹配的内容</text>
+  </view>
+</view>

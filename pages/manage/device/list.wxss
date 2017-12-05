@@ -1,5 +1,5 @@
 /* pages/manage/device/list.wxss */
-.nav-item {
+.nav-item input {
   font-size: 30rpx;
 }
 

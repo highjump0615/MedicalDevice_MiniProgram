@@ -16,6 +16,8 @@ var User = function (userInfo) {
   this.role = 0; // 普通会员
 }
 
+User.Roles = ['普通会员', '设备管理员','维修工程师', '平台管理员', '系统管理员'];
+
 User.prototype = {
   getLocationFormatted: function () {
     return this.latitude + ',' + this.longitude;

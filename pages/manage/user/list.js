@@ -1,11 +1,14 @@
 // pages/manage/user/list.js
+const app = getApp();
+var api = require('../../../utils/api.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    members: null  
   },
 
   /**
@@ -26,7 +29,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    
+    //
+    // 提取我的信息
+    //
+    var paramData = {
+      action: 'getSystemUser',
+      '3rd_session': app.globalData.thirdSession
+    };
+
+    api.postRequest(paramData, 
+      function success(res) {
+        if (res.data.result < 0) {
+          // 失败
+          return;
+        }
+
+        // 数据
+        that.setData({
+          users: res.data.systemusers
+        });
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
   },
 
   /**

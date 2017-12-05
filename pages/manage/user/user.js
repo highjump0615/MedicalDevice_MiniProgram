@@ -1,6 +1,8 @@
-// pages/manage/user/create.js
+// pages/manage/user/user.js
+var User = require('../../../model/User.js');
 const app = getApp();
 var api = require('../../../utils/api.js');
+
 
 Page({
 
@@ -8,43 +10,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isInProgress: false,
-    
-    // 查找
-    searchName: '',
-    searchPhone: '',
-    members: null  
+    id: 0,
+
+    // 界面效果
+    isInProgress: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
-  },
-
-    /**
-   * 输入昵称
-   */
-  onInputName: function (e) {
+  onLoad: function (options) {  
     this.setData({
-      searchName: e.detail.value
+      id: parseInt(options.id),
+      name: options.name,
+      phone: options.phone,
+      role: options.role ? options.role : '普通会员'
     });
   },
 
   /**
-   * 输入手机号
+   * 选择角色
    */
-  onInputPhone: function (e) {
-    this.setData({
-      searchPhone: e.detail.value
+  onSelectRole: function (e) {
+    var that = this;
+
+    wx.showActionSheet({
+      itemList: User.Roles,
+      success: function (res) {
+        that.setData({
+          role: User.Roles[res.tapIndex]
+        });
+      }
     });
   },
 
   /**
-   * 点击查找
+   * 保存
    */
-  doSearch: function (e) {
+  onSave: function (e) {
     var that = this;
 
     that.setData({
@@ -55,23 +58,21 @@ Page({
     // 提取我的信息
     //
     var paramData = {
-      action: 'queryMember',
+      action: 'setSystemUser',
       '3rd_session': app.globalData.thirdSession,
-      nickname: that.data.searchName,
-      phonenumber: that.data.searchPhone,
+      userid: that.data.id,
+      userrole: that.data.role
     };
 
     api.postRequest(paramData, 
       function success(res) {
-        if (res.data.result < 0) {
+        if (res.data.result <= 0) {
           // 失败
           return;
         }
 
-        // 数据
-        that.setData({
-          members: res.data.members
-        });
+        // 返回
+        wx.navigateBack();
       },
       function fail(err) {
       },
@@ -82,7 +83,6 @@ Page({
       }
     );
   },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成

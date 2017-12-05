@@ -2,13 +2,13 @@
 
 <view class="nav-items top-border bottom-border">
   <!-- 设备编码 -->
-  <view class="nav-item bottom-border">
+  <view class="nav-item" bindtap="onDevCode">
     <view class="flex-row flex-rest-width">
       <input class="nav-item-content flex-rest-width" placeholder="设备编码" bindinput="onInputCode" />
     </view>
   </view>
   <!-- 设备类型 -->
-  <view class="nav-item bottom-border">
+  <view class="nav-item">
     <text class="text-name flex-rest-width">设备类型</text>
     <view class="flex-row">
       <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>

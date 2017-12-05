@@ -16,6 +16,12 @@ Page({
   },
 
   /**
+   * 点击设备编码
+   */
+  onDevCode: function (e) {
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

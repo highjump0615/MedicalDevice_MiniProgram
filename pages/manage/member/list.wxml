@@ -7,7 +7,7 @@
 
 <view class="nav-items top-border bottom-border">
   <!-- 昵称 -->
-  <view class="nav-item bottom-border">
+  <view class="nav-item">
     <view class="flex-row flex-rest-width">
       <text class="text-name">昵称：</text>
       <input class="nav-item-content flex-rest-width" bindinput="onInputName" placeholder="请输入昵称" />

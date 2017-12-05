@@ -50,6 +50,9 @@ button[type="primary"] {
   margin-top: 30rpx;
   background: white;
 }
+.nav-items .nav-item:not(:last-child) {
+  border-bottom: 1px solid #efeff4;
+}
 .nav-items input {
   font-size: 34rpx;
 }
@@ -61,7 +64,7 @@ button[type="primary"] {
   padding-right: 30rpx;
   align-items: center;
 }
-.nav-item .text-name {
+.nav-item text {
   font-size: 34rpx;
 }
 .nav-item .text-right {
