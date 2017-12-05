@@ -26,6 +26,8 @@
   align-items: center;
 }
 .search input {
-  margin: 20rpx;
+  margin: 10rpx;
+  padding: 10rpx;
   font-size: 30rpx;
+  border: 1px solid #cfcfc4;
 }

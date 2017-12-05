@@ -1,4 +1,4 @@
-// pages/manage/partner/list.js
+// pages/manage/partner/create.js
 const app = getApp();
 var api = require('../../../utils/api.js');
 
@@ -8,27 +8,57 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isInProgress: false,
+
     // 查找
     searchName: '',
-
-    // 数据
-    partners: []
+    searchPhone: '',
+    members: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  
+  },
+
+  /**
+   * 输入昵称
+   */
+  onInputName: function (e) {
+    this.setData({
+      searchName: e.detail.value
+    });
+  },
+
+  /**
+   * 输入手机号
+   */
+  onInputPhone: function (e) {
+    this.setData({
+      searchPhone: e.detail.value
+    });
+  },
+
+  /**
+   * 点击查找
+   */
+  doSearch: function (e) {
     var that = this;
+
+    that.setData({
+      isInProgress: true
+    });
     
     //
     // 提取我的信息
     //
     var paramData = {
-      action: 'queryPartner',
+      action: 'queryMember',
       '3rd_session': app.globalData.thirdSession,
       nickname: that.data.searchName,
-      phonenumber: ''
+      phonenumber: that.data.searchPhone,
     };
 
     api.postRequest(paramData, 
@@ -40,14 +70,17 @@ Page({
 
         // 数据
         that.setData({
-          partners: res.data.members
+          members: res.data.members
         });
       },
       function fail(err) {
       },
       function complete() {
+        that.setData({
+          isInProgress: false
+        });
       }
-    );    
+    );
   },
 
   /**

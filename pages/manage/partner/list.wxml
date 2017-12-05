@@ -11,7 +11,7 @@
 </view>
 
 <!-- 表格 -->
-<view class="table">
+<view class="table" wx:if="{{partners.length > 0}}">
   <!-- 表头 -->
   <view class="thead">
     <view class="tr">
@@ -33,5 +33,8 @@
     </view>
     </block>
   </view>
+</view>
+<view wx:else class="no-notice">
+  <text>暂时没有合伙人</text>
 </view>
 
