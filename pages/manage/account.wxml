@@ -25,16 +25,18 @@
 
     <!-- 选择年月 -->
     <view class="mt-50 select-year">
-      <view>
-        年
+      <view hover-class="navigator-hover" bindtap="onSelectYear">
+        {{year}} 年
       </view>
-      <view>
-        月
-      </view>    
+      <picker mode="selector" bindchange="monthChange" value="{{monthIndex}}" range="{{months}}">
+        <view hover-class="navigator-hover">
+            {{months[monthIndex]}} 月
+        </view>
+      </picker>
     </view>
   
     <!-- 查找 -->
-    <button type="primary" class="mt-50">统计</button>
+    <button type="primary" class="mt-50" bindtap="onStatistics" loading="{{isInProgress}}">统计</button>
   
     <!-- 查找结果 -->
     <view class="search-result mt-40">
