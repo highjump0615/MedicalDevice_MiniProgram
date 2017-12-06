@@ -23,7 +23,8 @@
     "pages/profile/treats",
     "pages/profile/credits",
     "pages/profile/commissions",
-    "pages/profile/devicemanagers"
+    "pages/profile/devicemanagers",
+    "pages/profile/price"
   ],
   "window":{
     "backgroundTextStyle":"light",
