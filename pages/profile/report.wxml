@@ -1,0 +1,17 @@
+<!--pages/profile/report.wxml-->
+<view class="nav-items top-border bottom-border">
+  <!-- 设备编码 -->
+  <view class="nav-item" bindtap="onDevCode">
+    <text class="text-name">设备编码：</text>
+    <input class="flex-rest-width" placeholder="扫码输入" value="{{code}}" />
+  </view>
+  <!-- 故障描述 -->
+  <view class="nav-item desc">
+    <text class="text-name">故障描述：</text>
+    <textarea class="flex-rest-width" placeholder="请输入故障内容" value="{{errDesc}}" />
+  </view>
+</view>
+
+<!-- 查找 -->
+<button type="primary" bindtap="onSubmit" loading="{{isInProgress}}">提交</button>
+

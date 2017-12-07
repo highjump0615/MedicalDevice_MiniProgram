@@ -63,12 +63,14 @@
     </navigator>
 
     <!-- 体验感受 -->
-    <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">体验感受</text>
-      <view class="flex-row">
-        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+    <navigator url="experience/experiences">
+      <view class="nav-item bottom-border">
+        <text class="text-name flex-rest-width">体验感受</text>
+        <view class="flex-row">
+          <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+        </view>
       </view>
-    </view>
+    </navigator>
 
     <!-- 推荐分享 -->
     <view class="nav-item bottom-border">

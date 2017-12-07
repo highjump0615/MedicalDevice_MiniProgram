@@ -1,0 +1,16 @@
+/* pages/profile/report.wxss */
+
+.text-name {
+  width: 200rpx;
+}
+
+button {
+  margin: 50rpx 30rpx;
+}
+
+.desc .text-name {
+  align-self: flex-start;
+}
+.desc textarea {
+  font-size: 34rpx;
+}
