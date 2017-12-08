@@ -10,7 +10,7 @@
   <!-- 理疗 -->
   <navigator url="treats">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">理疗</text>
+      <text class="text-name">理疗</text>
       <view class="flex-row">
         <text class="text-right">{{userInfo.countTreat}} 次</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
@@ -21,7 +21,7 @@
   <!-- 积分 -->
   <navigator url="credits">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">积分</text>
+      <text class="text-name">积分</text>
       <view class="flex-row">
         <text class="text-right">{{userInfo.totalCredit}} 分</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
@@ -32,7 +32,7 @@
   <!-- 提成 -->
   <navigator url="commissions">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">提成</text>
+      <text class="text-name">提成</text>
       <view class="flex-row">
         <text class="text-right">{{userInfo.totalCommission}} 元</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
@@ -43,7 +43,7 @@
   <!-- 管理员 -->
   <navigator url="devicemanagers">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">管理员</text>
+      <text class="text-name">管理员</text>
       <view class="flex-row">
         <text class="text-right">{{userInfo.countDevAdmin}} 人</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
@@ -54,7 +54,7 @@
   <!-- 使用定价 -->
   <navigator url="price">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">使用定价</text>
+      <text class="text-name">使用定价</text>
       <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
@@ -64,7 +64,7 @@
   <!-- 体验感受 -->
   <navigator url="experience/experiences">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">体验感受</text>
+      <text class="text-name">体验感受</text>
       <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
@@ -72,17 +72,19 @@
   </navigator>
 
   <!-- 推荐分享 -->
-  <view class="nav-item bottom-border">
-    <text class="text-name flex-rest-width">推荐分享</text>
-    <view class="flex-row">
-      <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+  <button open-type="share" class="but-transparent">
+    <view class="nav-item bottom-border">
+      <text class="text-name">推荐分享</text>
+      <view class="flex-row">
+        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+      </view>
     </view>
-  </view>
+  </button>
 
   <!-- 申报设备故障 -->
   <navigator url="report">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">申报设备故障</text>
+      <text class="text-name">申报设备故障</text>
       <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>

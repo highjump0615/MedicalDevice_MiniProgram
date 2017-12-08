@@ -21,3 +21,11 @@ page {
 .userinfo text {
   font-size: 34rpx;
 }
+
+button {
+  line-height: 1;
+}
+
+.nav-item {
+  justify-content: space-between;
+}

@@ -16,6 +16,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showShareMenu({
+      withShareTicket: true,
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (res) {        
+      }
+    });
   },
 
   /**
@@ -121,7 +129,27 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var currentUser = app.globalData.currentUser;
+
+    return {
+      title: '通络吧',
+      path: '/pages/index/index?userid=' + currentUser.id,
+      success: function (res) {
+        console.log(res.shareTickets[0]);
+        
+        // console.log
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: function (res) { console.log(res) },
+          fail: function (res) { console.log(res) },
+          complete: function (res) { console.log(res) }
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
   }
 
 })

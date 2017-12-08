@@ -17,6 +17,21 @@ Page({
   },
 
   onLoad: function () {
+
+    if (app.globalData.currentUser) {
+      this.initPage();
+    }
+    else {
+      app.userInfoReadyCallback = res => {
+        this.initPage();
+      }
+    }  
+  },
+
+  /**
+   * 页面初始化
+   */
+  initPage: function () {
     // 检查3rd session
     // var thirdSession = wx.getStorageSync('thirdSession');
     // if (thirdSession) {
@@ -33,7 +48,7 @@ Page({
     // }
 
     var that = this;
-
+    
     // 登录
     wx.login({
       success: res => {
@@ -60,6 +75,10 @@ Page({
 
             // 用户已存在
             if (res.data.result == 1) {
+              // 保存id
+              var currentUser = app.globalData.currentUser;
+              currentUser.id = parseInt(res.data['userid']);
+
               // 获取用户角色
               that.getUserRole();
               return;
