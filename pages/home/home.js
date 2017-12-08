@@ -45,8 +45,10 @@ Page({
         success: (res) => {
           console.log(res);
 
+          var strMac = Device.extractMac(res.result);
+
           // 设备绑定
-          api.gwBindDevice('5ccf7ff6af95', 
+          api.gwBindDevice(strMac, 
             function success(res) {
               if (res.data.error_code) {
                 // 失败
@@ -59,7 +61,7 @@ Page({
                 return;
               }
 
-              var device = new Device(res.data);
+              var device = new Device.initWithInfo(res.data);
               that.startDevice(device.did);
             },
             function fail(err) {
@@ -82,6 +84,21 @@ Page({
    * 打开设备
    */
   startDevice: function(did) {
+    var that = this;
+
+    wx.showModal({
+      title: '开机确认',
+      content: '确定要启动此设备吗？',
+      confirmColor: '#1AAD19',
+      success: function(res) {
+        if (res.confirm) {
+          that.doStartDevice(did);
+        }
+      }
+    });
+  },
+  
+  doStartDevice: function(did) {
     // 设备绑定
     api.gwControlDevice(did, 
       function success(res) {

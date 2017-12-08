@@ -191,31 +191,31 @@ Page({
   gotoMain: function () {
 
     // 机智云匿名登录
-  //   api.gwLogin(null, 
-  //     function success(res) {
-  //       if (!res.data.token) {
-  //         // 失败
-  //         wx.showModal({
-  //           title: '机智云登录失败',
-  //           content: '获取不到token和uid',
-  //           showCancel: false
-  //         });
+    api.gwLogin(null, 
+      function success(res) {
+        if (!res.data.token) {
+          // 失败
+          wx.showModal({
+            title: '机智云登录失败',
+            content: '获取不到token和uid',
+            showCancel: false
+          });
 
-  //         return;
-  //       }
+          return;
+        }
 
-  //       app.globalData.gizwits = res.data;
+        app.globalData.gizwits = res.data;
 
         // 跳转转到附近页
         wx.reLaunch({
           url: '../home/home'
         });
-  //     },
-  //     function fail(err) {
-  //     },
-  //     function complete() {
-  //     }
-  //   );
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
   }
   
 })

@@ -125,7 +125,7 @@ module.exports = {
 
     var paramData = {
       attrs: {
-        'power_onoff' : true
+        'dev_power' : true
       }
     };
 

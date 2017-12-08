@@ -30,6 +30,8 @@ Device.extractMac = function (qrcode) {
 Device.initWithInfo = function (info) {
   var devNew = new Device(info.mac);
   devNew.did = info.did;
+
+  return devNew;
 }
 
 Device.prototype = {
