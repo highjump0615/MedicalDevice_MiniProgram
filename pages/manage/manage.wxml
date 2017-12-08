@@ -1,9 +1,9 @@
 <!--pages/manage/manage.wxml-->
-<view wx:if="{{userInfo.role > 0}}" >
+<view wx:if="{{userInfo.role == 3 || userInfo.role == 4}}" >
   <!-- 菜单 -->
   <view class="nav-items">
     <!-- 会员 -->
-    <navigator url="member/list" wx:if="{{userInfo.role == 3 || userInfo.role == 4}}">
+    <navigator url="member/list">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">会员</text>
         <view class="flex-item-right flex-row">
