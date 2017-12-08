@@ -33,7 +33,7 @@ button[type="primary"] {
   margin-top: 50rpx;
 }
 .ml-20 {
-  margin-left: 20rpx;
+  margin-left: 20rpx !important;
 }
 .ml-30 {
   margin-left: 30rpx;
@@ -64,10 +64,12 @@ button[type="primary"] {
 }
 
 .nav-item {
-  height: 88rpx;
+  min-height: 48rpx;
   display:flex;
   margin-left: 30rpx;
   padding-right: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   align-items: center;
 }
 .nav-item text {

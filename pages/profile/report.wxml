@@ -8,7 +8,7 @@
   <!-- 故障描述 -->
   <view class="nav-item desc">
     <text class="text-name">故障描述：</text>
-    <textarea class="flex-rest-width" placeholder="请输入故障内容" value="{{errDesc}}" />
+    <textarea class="flex-rest-width" placeholder="请输入故障内容" bindinput="onInputDesc" value="{{errDesc}}" />
   </view>
 </view>
 

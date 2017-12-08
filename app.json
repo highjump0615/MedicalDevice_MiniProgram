@@ -24,7 +24,10 @@
     "pages/profile/credits",
     "pages/profile/commissions",
     "pages/profile/devicemanagers",
-    "pages/profile/price"
+    "pages/profile/price",
+    "pages/profile/experience/experiences",
+    "pages/profile/experience/create",
+    "pages/profile/report"
   ],
   "window":{
     "backgroundTextStyle":"light",

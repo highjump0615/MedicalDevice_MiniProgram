@@ -1,11 +1,17 @@
 // pages/profile/report.js
+var Device = require('../../model/Device.js');
+const app = getApp();
+var api = require('../../utils/api.js');
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    isInProgress: false,
+    desc: ''
   },
 
   /**
@@ -13,6 +19,97 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+
+  /**
+   * 点击设备编码
+   */
+  onDevCode: function (e) {
+    var that = this;
+
+    wx.scanCode({
+      success: (res) => {
+        console.log(res);
+
+        // 失败
+        if (res.errMsg !== 'scanCode:ok') {
+          return;
+        }
+
+        var strMac = Device.extractMac(res.result);
+        if (strMac) {
+          that.setData({
+            code: strMac
+          });
+        }
+      }
+    });
+  },
+
+  /**
+   * 输入内容
+   */
+  onInputDesc: function (e) {
+    this.setData({
+      desc: e.detail.value
+    });
+  },
+
+  /**
+   * 提交
+   */
+  onSubmit: function (e) {
+    //
+    // 检查输入项
+    //
+    if (!this.data.code) {
+      // 失败
+      wx.showModal({
+        title: '请输入设备参数',
+        content: '设备编码不能为空',
+        showCancel: false
+      });
+
+      return;
+    }
+
+    //  
+    // 保存设备
+    //
+    var that = this;
+    
+    that.setData({
+      isInProgress: true
+    });
+    
+    var paramData = {
+      action: 'reportFault',
+      '3rd_session': app.globalData.thirdSession,
+      devicecode: that.data.code,
+      description: that.data.desc
+    };
+
+    api.postRequest(paramData, 
+      function success(res) {
+        if (res.data.result <= 0) {
+          // 失败
+          return;
+        }
+
+        // 返回
+        wx.showToast({
+          title: '提交成功'
+        });
+        wx.navigateBack();
+      },
+      function fail(err) {
+      },
+      function complete() {
+        that.setData({
+          isInProgress: false
+        });
+      }
+    );
   },
 
   /**

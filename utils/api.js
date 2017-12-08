@@ -14,7 +14,15 @@ function postRequest(param, success, fail, complete) {
 
       if (res.data.result !== undefined) {
         success(res);
+        return;
       }
+
+      // 错误提示
+      wx.showModal({
+        title: '调用接口失败',
+        content: res.errMsg + ', ' + res.statusCode,
+        showCancel: false
+      });
     },
     fail: function (err) {
       console.log(err);
