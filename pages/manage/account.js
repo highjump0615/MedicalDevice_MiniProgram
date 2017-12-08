@@ -47,12 +47,12 @@ Page({
           return;
         }
 
-        // that.setData({
-        //   countDay: res.data.daytotal,
-        //   countMonth: res.data.monthtotal,
-        //   countYear: res.data.yeartotal,
-        //   countTotal: res.data.total
-        // });
+        that.setData({
+          incomeBalance: res.data.incomebalance,
+          incomeTotal: res.data.incometotal,
+          disburseBalance: res.data.disbursebalance,
+          disburseTotal: res.data.disbursetotal
+        });
       },
       function fail(err) {
       },
@@ -107,15 +107,14 @@ Page({
 
     api.postRequest(paramData, 
       function success(res) {
-        if (res.data.result < 0) {
+        if (res.data.result <= 0) {
           // 失败
           return;
         }
-
       },
       function fail(err) {
       },
-      function complete() {
+      function complete() { 
         that.setData({
           isInProgress: false
         });
@@ -126,8 +125,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function () {  
   },
 
   /**

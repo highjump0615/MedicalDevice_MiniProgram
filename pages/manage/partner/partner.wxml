@@ -1,7 +1,7 @@
 <!--pages/manage/partner/partner.wxml-->
 <view class="nav-items top-border bottom-border">
   <!-- 昵称 -->
-  <view class="nav-">
+  <view class="nav-item">
     <view class="flex-row flex-rest-width">
       <text class="text-name">昵称：</text>
       <text>{{nickName}}</text>
@@ -39,8 +39,12 @@
       <block wx:for="{{devices}}" wx:for-item="device" wx:key="">
       <view class="tr">
         <view class="td">{{index + 1}}</view>
-        <view class="td">{{member.nickname}}</view>
-        <view class="td">{{member.phonenumber}}</view>
+        <view class="td">
+          <text>{{device.mac}}</text>
+        </view>
+        <view class="td">
+          <button class="but-transparent" data-index="{{index}}" bindtap="deleteDevice">删除</button>
+        </view>
       </view>
       </block>
     </view>

@@ -34,8 +34,8 @@ Page({
 
         // 数据
         that.setData({
-          priceP: p_price,
-          priceJ: j_price,
+          priceP: res.data.p_price,
+          priceJ: res.data.j_price,
         });
       },
       function fail(err) {

@@ -4,14 +4,14 @@
   <!-- 通络盆 -->
   <view class="nav-item">
     <text class="text-name">通络盆：</text>
-    <input class="nav-item-content flex-rest-width" placeholder="请输入价格" data-type="0" bindinput="onInputPrice" type="digit" value="{{priceP}}" />
+    <input class="nav-item-content flex-rest-width" placeholder="请输入价格" data-type="0" bindinput="onInputPrice" type="number" value="{{priceP}}" />
     <text class="ml-20">元 / 次</text>
   </view>
 
   <!-- 通络机 -->
   <view class="nav-item">
       <text class="text-name">通络机：</text>
-      <input class="nav-item-content flex-rest-width" placeholder="请输入价格" data-type="1" bindinput="onInputPrice" type="digit" value="{{priceJ}}" />
+      <input class="nav-item-content flex-rest-width" placeholder="请输入价格" data-type="1" bindinput="onInputPrice" type="number" value="{{priceJ}}" />
       <text class="ml-20">元 / 次</text>
     </view>
 </view>

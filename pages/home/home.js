@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    controls: []
   },
 
   /**
@@ -18,38 +19,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
-    // 获取屏幕大小
-    wx.getSystemInfo({
-      success: function(res) {
-        // 设置两个按钮
-        that.setData({
-          controls: [{
-            id: 1,
-            iconPath: '../../res/images/but_start.png',
-            position: {
-              left: (res.windowWidth - gnWidthButton) / 2,
-              // top: res.screenHeight - 250,
-              top: res.screenHeight - 200,
-              width: gnWidthButton,
-              height: gnHeightButton,
-            },
-            clickable: true
-          }]
-          // {
-          //   id: 2,
-          //   iconPath: '../../res/images/but_device.png',
-          //   position: {
-          //     left: (res.windowWidth - gnWidthButton) / 2,
-          //     top: res.screenHeight - 190,
-          //     width: gnWidthButton,
-          //     height: gnHeightButton,
-          //   },
-          //   clickable: true
-          // }]
-        });
-      }
-    })
 
     // 获取当前位置
     wx.getLocation({
@@ -138,7 +107,41 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var that = this;
+    
+    // 获取屏幕大小
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res);
+
+        // 设置两个按钮
+        that.setData({
+          controls: [{
+            id: 1,
+            iconPath: '../../res/images/but_start.png',
+            position: {
+              left: (res.windowWidth - gnWidthButton) / 2,
+              // top: res.screenHeight - 250,
+              top: res.windowHeight - gnHeightButton * 4,
+              width: gnWidthButton,
+              height: gnHeightButton,
+            },
+            clickable: true
+          }]
+          // {
+          //   id: 2,
+          //   iconPath: '../../res/images/but_device.png',
+          //   position: {
+          //     left: (res.windowWidth - gnWidthButton) / 2,
+          //     top: res.screenHeight - 190,
+          //     width: gnWidthButton,
+          //     height: gnHeightButton,
+          //   },
+          //   clickable: true
+          // }]
+        });
+      }
+    });  
   },
 
   /**

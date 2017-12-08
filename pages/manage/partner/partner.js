@@ -46,6 +46,15 @@ Page({
         }
 
         // 数据
+        var devices = [];
+        for (var i = 0; i < res.data.records.length; i++) {
+          var devNew = new Device(res.data.records[i].devicecode);
+          devices.push(devNew);
+        }
+
+        that.setData({
+          devices: devices
+        });
       },
       function fail(err) {
       },
@@ -109,13 +118,64 @@ Page({
 
         // 数据
         var devNew = new Device(mac);
-        that.data.devices.push(mac);
+        that.data.devices.push(devNew);
         that.setData({
           devices: that.data.devices
         });
 
         wx.showToast({
           title: '添加成功'
+        });
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
+  },
+
+  /**
+   * 删除设备
+   */
+  deleteDevice: function (e) {
+    var that = this;
+    
+    wx.showModal({
+      title: '删除',
+      content: '确认要取消租用此设备吗？',
+      confirmColor: '#1AAD19',
+      success: function(res) {
+        if (res.confirm) {
+          that.doDeleteDevice(e.currentTarget.dataset.index);
+        }
+      }
+    });
+  },
+
+  doDeleteDevice: function (index) {
+    var that = this;
+    var device = this.data.devices[index];
+  
+    var paramData = {
+      action: 'removeRentedDevice',
+      '3rd_session': app.globalData.thirdSession,
+      userid: that.data.userId,
+      devicecode: device.mac
+    };
+
+    api.postRequest(paramData, 
+      function success(res) {
+        if (res.data.result <= 0) {
+          // 失败
+          return;
+        }
+        
+        // 删除该留言
+        that.data.devices.splice(index, 1);
+
+        // 更新数据
+        that.setData({
+          devices: that.data.devices
         });
       },
       function fail(err) {

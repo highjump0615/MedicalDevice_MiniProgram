@@ -5,22 +5,22 @@
   <view class="full-width">
     <view class="flex-row">
       <text class="flex-rest-width">收入余额</text>
-      <text>192</text>
+      <text>{{incomeBalance}}</text>
     </view>
 
     <view class="flex-row mt-15">
       <text class="flex-rest-width">收入累计：</text>
-      <text>192</text>
+      <text>{{incomeTotal}}</text>
     </view>
 
     <view class="flex-row mt-15">
       <text class="flex-rest-width">支出余额：</text>
-      <text>192</text>
+      <text>{{disburseBalance}}</text>
     </view>
 
     <view class="flex-row mt-15">
       <text class="flex-rest-width">支出累计：</text>
-      <text>192</text>
+      <text>{{disburseTotal}}</text>
     </view>
 
     <!-- 选择年月 -->

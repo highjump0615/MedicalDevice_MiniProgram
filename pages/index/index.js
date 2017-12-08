@@ -188,7 +188,7 @@ Page({
   //       app.globalData.gizwits = res.data;
 
         // 跳转转到附近页
-        wx.switchTab({
+        wx.reLaunch({
           url: '../home/home'
         });
   //     },

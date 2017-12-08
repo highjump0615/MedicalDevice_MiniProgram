@@ -19,3 +19,11 @@ button {
 .tr .td:nth-child(3) {
   flex: 20;
 }
+
+.search-result button {
+  font-size: 30rpx;
+}
+
+.tbody .tr .td {
+  padding: 0;
+}

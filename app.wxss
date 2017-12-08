@@ -126,10 +126,12 @@ button[type="primary"] {
 
 .td {
   padding: 10px 0px;
-  text-align: center;
   border: 1px solid #bfbfbf;
   border-left: 0;
   border-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 页面 */

@@ -50,12 +50,12 @@
   
     <!-- 内容-->
     <view class="tbody">
-      <block wx:for="{{[0,1,2,3,4]}}" wx:for-item="i" wx:key="">
+      <block wx:for="{{devices}}" wx:for-item="device" wx:key="">
       <view class="tr">
-          <view class="td">1</view>
-          <view class="td">highjump</view>
-          <view class="td">13092837629</view>
-          <view class="td">1000</view>
+          <view class="td">{{index + 1}}</view>
+          <view class="td">{{device.devicecode}}</view>
+          <view class="td">{{device.status}}</view>
+          <view class="td">{{device.devicetype}}</view>
       </view>
       </block>
     </view>

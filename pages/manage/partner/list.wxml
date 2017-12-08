@@ -24,11 +24,11 @@
 
   <!-- 内容-->
   <view class="tbody">
-    <block wx:for="{{[0,1,2,3,4]}}" wx:for-item="i" wx:key="">
+    <block wx:for="{{partners}}" wx:for-item="partner" wx:key="">
     <view class="tr">
-        <view class="td">1</view>
-        <view class="td">highjump</view>
-        <view class="td">13092837629</view>
+        <view class="td">{{index + 1}}</view>
+        <view class="td">{{partner.nickname}}</view>
+        <view class="td">{{partner.phonenumber}}</view>
         <view class="td">1000</view>
     </view>
     </block>

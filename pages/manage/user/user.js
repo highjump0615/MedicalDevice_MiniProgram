@@ -27,6 +27,9 @@ Page({
     var strRole = User.Roles[0];
     if (options.type == gnTypeDeviceManager) {
       strRole = User.Roles[1];
+      wx.setNavigationBarTitle({
+        title: '添加新管理员'
+      });
     }
 
     this.setData({
