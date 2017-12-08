@@ -18,19 +18,19 @@ Page({
 
   onLoad: function () {
     // 检查3rd session
-    var thirdSession = wx.getStorageSync('thirdSession');
-    if (thirdSession) {
-      // 获取已保存的用户信息
-      app.globalData.thirdSession = thirdSession;
+    // var thirdSession = wx.getStorageSync('thirdSession');
+    // if (thirdSession) {
+    //   // 获取已保存的用户信息
+    //   app.globalData.thirdSession = thirdSession;
 
-      var userInfo = wx.getStorageSync('userInfo');
-      app.globalData.currentUser = userInfo;
+    //   var userInfo = wx.getStorageSync('userInfo');
+    //   app.globalData.currentUser = userInfo;
 
-      // 进入主页面
-      this.gotoMain();
+    //   // 进入主页面
+    //   this.gotoMain();
 
-      return;
-    }
+    //   return;
+    // }
 
     var that = this;
 
@@ -188,7 +188,7 @@ Page({
   //       app.globalData.gizwits = res.data;
 
         // 跳转转到附近页
-        wx.reLaunch({
+        wx.switchTab({
           url: '../home/home'
         });
   //     },
