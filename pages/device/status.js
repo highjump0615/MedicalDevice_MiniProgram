@@ -1,19 +1,42 @@
 // pages/device/status.js
+var Device = require('../../model/Device.js');
+
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    energy: 5,
-    remaining: 3
+    energy: 0,
+    remaining: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.updateData();
+    setInterval(this.updateData, 1000);
+  },
+
+  /**
+   * 更新数据
+   */
+  updateData: function () {
+    var device = app.globalData.currentDevice;
+
+    if (device) {
+      this.setData({
+        energy: device.energy,
+        remaining: (device.workTime / 2500) * 10
+      });
+    }
+    // 已关闭
+    else {
+      wx.navigateBack();
+    }
   },
 
   /**

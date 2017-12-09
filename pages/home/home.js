@@ -1,6 +1,7 @@
 // pages/home/home.js
 var api = require('../../utils/api.js');
 var Device = require('../../model/Device.js');
+const app = getApp();
 
 var gnWidthButton = 130;
 var gnHeightButton = 45;
@@ -41,36 +42,45 @@ Page({
 
     // 扫码开机
     if (e.controlId == 1) {
-      wx.scanCode({
-        success: (res) => {
-          console.log(res);
+      // 设备已开机
+      if (app.globalData.currentDevice) {
+        wx.navigateTo({
+          url: '../device/status'
+        });
+      }
+      // 没有设备绑定
+      else {
+        wx.scanCode({
+          success: (res) => {
+            console.log(res);
 
-          var strMac = Device.extractMac(res.result);
+            var strMac = Device.extractMac(res.result);
 
-          // 设备绑定
-          api.gwBindDevice(strMac, 
-            function success(res) {
-              if (res.data.error_code) {
-                // 失败
-                wx.showModal({
-                  title: '绑定设备失败',
-                  content: res.data.error_message,
-                  showCancel: false
-                });
+            // 设备绑定
+            api.gwBindDevice(strMac, 
+              function success(res) {
+                if (res.data.error_code) {
+                  // 失败
+                  wx.showModal({
+                    title: '绑定设备失败',
+                    content: res.data.error_message,
+                    showCancel: false
+                  });
 
-                return;
+                  return;
+                }
+
+                var device = new Device.initWithInfo(res.data);
+                that.startDevice(device);
+              },
+              function fail(err) {
+              },
+              function complete() {
               }
-
-              var device = new Device.initWithInfo(res.data);
-              that.startDevice(device.did);
-            },
-            function fail(err) {
-            },
-            function complete() {
-            }
-          );
-        }
-      });
+            );
+          }
+        });
+      }
     }
     // 设备入网
     else {
@@ -83,7 +93,7 @@ Page({
   /**
    * 打开设备
    */
-  startDevice: function(did) {
+  startDevice: function(device) {
     var that = this;
 
     wx.showModal({
@@ -92,39 +102,47 @@ Page({
       confirmColor: '#1AAD19',
       success: function(res) {
         if (res.confirm) {
-          that.doStartDevice(did);
+          that.doStartDevice(device);
         }
       }
     });
   },
   
-  doStartDevice: function(did) {
-    // 设备绑定
-    api.gwControlDevice(did, 
-      function success(res) {
-        if (res.data.error_code) {
-          // 失败
-          wx.showModal({
-            title: '设备开机失败',
-            content: res.data.error_message,
-            showCancel: false
-          });
-          
-          return;
-        }
-      },
-      function fail(err) {
-      },
-      function complete() {
-      }
-    );
+  doStartDevice: function(device) {
+    var that = this;
+
+    device.startDevice(function success(res) {
+      // 开机成功，保存设备
+      app.globalData.currentDevice = device;
+      that.onShow();
+    }, 
+    function fail(err) {
+      // 失败
+      wx.showModal({
+        title: '设备开机失败',
+        content: res.data.error_message,
+        showCancel: false
+      });
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this;
+
+    var strIconPath = '../../res/images/but_start.png';
+    // 已开机，改成状态按钮
+    if (app.globalData.currentDevice) {
+      strIconPath = '../../res/images/but_dev_status.png';
+    }
     
     // 获取屏幕大小
     wx.getSystemInfo({
@@ -135,7 +153,7 @@ Page({
         that.setData({
           controls: [{
             id: 1,
-            iconPath: '../../res/images/but_start.png',
+            iconPath: strIconPath,
             position: {
               left: (res.windowWidth - gnWidthButton) / 2,
               // top: res.screenHeight - 250,
@@ -159,13 +177,6 @@ Page({
         });
       }
     });  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
 
   /**

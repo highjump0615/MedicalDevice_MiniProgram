@@ -53,6 +53,25 @@ function postRequestRaw(url, header, param, success, fail, complete) {
   });
 }
 
+function getRequestRaw(url, header, success, fail, complete) {
+  wx.request({
+    url: url,
+    method: "GET",
+    header: header,
+    success: function(res) {
+      console.log(res.data);
+
+      success(res);
+    },
+    fail: function (err) {
+      console.log(err);
+
+      fail(err);
+    },
+    complete: complete
+  });
+}
+
 
 module.exports = {
   postRequest: postRequest,
@@ -135,6 +154,29 @@ module.exports = {
       headerData,
       paramData,
       success,
+      fail,
+      complete
+    );
+  },
+
+  /**
+   * 获取数据
+   */
+  gwGetLatest: function (did, success, fail, complete) {
+    var headerData = {
+      'X-Gizwits-Application-Id': config.gizwits.appId,
+      'X-Gizwits-User-token': app.globalData.gizwits.token
+    };
+
+    // 调用后台请求
+    getRequestRaw(
+      config.gizwits.apiBaseUrl + '/devdata/' + did + '/latest',
+      headerData,
+      function _success (res) {
+        if (res.data.attr) {
+          return success(res.data.attr);
+        }
+      },
       fail,
       complete
     );

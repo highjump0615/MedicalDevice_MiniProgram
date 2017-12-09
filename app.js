@@ -33,7 +33,22 @@ App({
   globalData: {
     currentUser: null,
     gizwits: null,
+    currentDevice: null, 
     years: ['2015', '2016', '2017'],
     months: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+  },
+
+  /**
+   * 关闭设备
+   */
+  closeDevice: function () {
+    this.globalData.currentDevice = null;
+
+    // 提示
+    wx.showModal({
+      title: '设备已关闭',
+      content: '用户关闭了电源',
+      showCancel: false
+    });
   }
 })
