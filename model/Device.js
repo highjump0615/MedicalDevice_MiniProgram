@@ -55,8 +55,7 @@ Device.prototype = {
         }
 
         // 定时获取数据
-        that.getParameter();
-        that.timerId = setInterval(function () {
+          that.timerId = setInterval(function () {
           that.getParameter()
         }, 3000);
         

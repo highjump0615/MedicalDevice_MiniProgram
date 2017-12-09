@@ -197,7 +197,7 @@ Page({
           // 失败
           wx.showModal({
             title: '机智云登录失败',
-            content: '获取不到token和uid',
+            content: res.data.error_code + ', ' + res.data.error_message,
             showCancel: false
           });
 
