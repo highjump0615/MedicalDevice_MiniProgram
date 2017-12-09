@@ -4,12 +4,12 @@
   <!-- logo -->
   <image class="logo" src="../../res/images/logo.png" mode="aspectFit" />
 
-  <text class="title color-theme">“通络一堂”经络健康互联网共享平台</text>
+  <text class="title color-theme">“通络吧”经络健康互联网共享平台</text>
   <text class="desc color-theme"
-  >利用自主知识产权冲击波产品，为您提供通络理疗保健服务，快速祛痛，长期调理。欢迎体验并加入“通络一堂”合伙人行列，共同参与，共同成长，共享健康，共享收益。
+  >利用自主知识产权冲击波产品，为您提供通络理疗保健服务，快速祛痛，长期调理。欢迎体验并加入“通络吧”合伙人行列，共同参与，共同成长，共享健康，共享收益。
   </text>
 
   <!-- 进入 -->
-  <button type="primary" bindtap="gotoHome">进入</button>
+  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" loading="{{isChecking}}" disabled="{{isChecking}}">进入</button>
 
 </view>

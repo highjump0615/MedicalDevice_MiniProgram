@@ -1,0 +1,21 @@
+/* pages/manage/partner/create.wxss */
+
+.text-name {
+  width: 150rpx;
+}
+
+button {
+  margin: 50rpx 30rpx;
+}
+
+.tr .td:nth-child(1) {
+  flex: 10;
+}
+
+.tr .td:nth-child(2) {
+  flex: 42;
+}
+
+.tr .td:nth-child(3) {
+  flex: 44;
+}

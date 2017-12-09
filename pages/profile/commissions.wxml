@@ -1,0 +1,42 @@
+<!--pages/profile/commissions.wxml-->
+<view class="header-info">
+  <view class="flex-row flex-space">
+    <text>上月提成：{{lastValue}} 元</text>
+    <text>当月提成：{{currrentValue}} 元</text>
+  </view>
+  <view class="flex-row flex-space mt-20">
+    <view>
+      <text>提成余额：{{remainValue}} 元</text>
+      <text class="ml-30">可提现：{{availableValue}} 元</text>
+    </view>
+    <button>提现</button>
+  </view>
+</view>
+
+<!-- 表格 -->
+<view class="table" wx:if="{{items.length > 0}}">
+  <!-- 表头 -->
+  <view class="thead">
+  <view class="tr">
+    <view class="td">序号</view>
+      <view class="td">时间</view>
+      <view class="td">提成</view>
+      <view class="td">累计提成</view>
+    </view>
+  </view>
+
+  <!-- 内容-->
+  <view class="tbody">
+    <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+    <view class="tr">
+      <view class="td">{{index + 1}}</view>
+      <view class="td">{{item.treattime}}</view>
+      <view class="td">{{item.credits}}</view>
+      <view class="td">{{item.creditstotal}}</view>
+    </view>
+    </block>
+  </view>
+</view>
+<view wx:else class="no-notice">
+  <text>暂时没有提成记录</text>
+</view>

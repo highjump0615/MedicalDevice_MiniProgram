@@ -1,0 +1,34 @@
+<!--pages/manage/user/list.wxml-->
+
+<view class="flex-row flex-center header">
+  <navigator url="create?type=0">
+    <button class="but-transparent color-theme">添加新用户</button>
+  </navigator>
+</view>
+
+<!-- 表格 -->
+<view class="table">
+  <!-- 表头 -->
+  <view class="thead">
+    <view class="tr">
+      <view class="td">序号</view>
+      <view class="td">昵称</view>
+      <view class="td">手机号</view>
+      <view class="td">用户角色</view>
+    </view>
+  </view>
+
+  <!-- 内容-->
+  <view class="tbody">
+    <block wx:for="{{users}}" wx:for-item="user" wx:key="">
+    <navigator url="user?id={{user.userid}}&name={{user.nickname}}&phone={{user.phonenumber}}&role={{user.userrole}}">
+      <view class="tr">
+        <view class="td">{{index + 1}}</view>
+        <view class="td">{{user.nickname}}</view>
+        <view class="td">{{user.phonenumber}}</view>
+        <view class="td">{{user.userrole}}</view>
+      </view>
+    </navigator>
+    </block>
+  </view>
+</view>

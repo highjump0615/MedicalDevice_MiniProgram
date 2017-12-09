@@ -1,0 +1,32 @@
+/* pages/profile/experiences.wxss */
+
+.header {
+  justify-content: flex-end;
+}
+
+.blog-list {
+  margin: 30rpx;
+}
+.blog-list .blog:not(:first-child) {
+  margin-top: 50rpx;
+}
+
+.blog-header {
+  font-size: 24rpx;
+  color: gray;
+}
+
+.blog-content {
+  margin-top: 16rpx;
+  font-size: 28rpx;
+}
+
+.blog-tail {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16rpx;
+}
+.blog-tail button {
+  font-size: 22rpx;
+  margin: 0;
+}

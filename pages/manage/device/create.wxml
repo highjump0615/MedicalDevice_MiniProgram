@@ -1,0 +1,29 @@
+<!--pages/manage/device/create.wxml-->
+<view class="nav-items top-border bottom-border">
+  <!-- 设备编码 -->
+  <view class="nav-item" bindtap="onDevCode">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">设备编码：</text>
+      <input class="nav-item-content flex-rest-width" placeholder="扫码输入" value="{{code}}" />
+    </view>
+  </view>
+  <!-- 设备类型 -->
+  <view class="nav-item" bindtap="onSelectType">
+    <text class="text-name">设备类型：</text>
+    <view class="flex-row flex-rest-width flex-space">
+      <text>{{type}}</text>
+      <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
+    </view>
+  </view>
+  <!-- 设备类型 -->
+  <view class="nav-item" bindtap="onSelectState">
+    <text class="text-name">设备状态：</text>
+    <view class="flex-row flex-rest-width flex-space">
+      <text>{{state}}</text>
+      <image class="nav-item-arrow" src="../../../res/images/nav_rightmark.png" ></image>
+    </view>
+  </view>
+</view>
+
+<!-- 查找 -->
+<button type="primary" bindtap="onSubmit" loading="{{isInProgress}}">提交</button>

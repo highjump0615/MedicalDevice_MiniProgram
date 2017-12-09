@@ -1,59 +1,74 @@
 <!--pages/manage/manage.wxml-->
-<view>
+<view wx:if="{{userInfo.role == 3 || userInfo.role == 4}}" >
   <!-- 菜单 -->
   <view class="nav-items">
-      <!-- 会员 -->
+    <!-- 会员 -->
+    <navigator url="member/list">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">会员</text>
         <view class="flex-item-right flex-row">
-          <text class="text-right">105</text>
+          <text class="text-right">{{countMember}}</text>
           <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
         </view>
       </view>
-  
-      <!-- 合伙人 -->
+    </navigator>
+
+    <!-- 合伙人 -->
+    <navigator url="partner/list">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">合伙人</text>
         <view class="flex-item-right flex-row">
-          <text class="text-right">5</text>
+          <text class="text-right">{{countPartner}}</text>
           <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
         </view>
       </view>
-  
-      <!-- 系统用户 -->
+    </navigator>
+
+    <!-- 系统用户 -->
+    <navigator url="user/list">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">系统用户</text>
         <view class="flex-item-right flex-row">
-          <text class="text-right">5</text>
+          <text class="text-right">{{countUser}}</text>
           <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
         </view>
       </view>
-  
-      <!-- 系统设备 -->
+    </navigator>
+
+    <!-- 系统设备 -->
+    <navigator url="device/list">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">系统设备</text>
         <view class="flex-item-right flex-row">
-          <text class="text-right">25</text>
+          <text class="text-right">{{countDevice}}</text>
           <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
         </view>
       </view>
-  
-      <!-- 使用次数 -->
+    </navigator>
+
+    <!-- 使用次数 -->
+    <navigator url="use">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">使用次数</text>
         <view class="flex-item-right flex-row">
-          <text class="text-right">105</text>
+          <text class="text-right">{{countUseTimes}}</text>
           <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
         </view>
       </view>
-  
-      <!-- 平台账户 -->
+    </navigator>
+
+    <!-- 平台账户 -->
+    <navigator url="account">
       <view class="nav-item bottom-border">
         <text class="text-name flex-rest-width">平台账户</text>
         <view class="flex-item-right flex-row">
           <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
         </view>
       </view>
-  
-    </view>
+    </navigator>
+
+  </view>
+</view>
+<view wx:else class="no-notice">
+  <text>只有系统管理员和平台管理员才能查看此页{{userInfo.role}}</text>
 </view>

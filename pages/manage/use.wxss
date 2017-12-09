@@ -1,0 +1,6 @@
+/* pages/manage/use.wxss */
+
+.container {
+  margin: 30rpx;
+  font-size: 30rpx;
+}

@@ -1,0 +1,31 @@
+<!--pages/profile/experience/experiences.wxml-->
+
+<view class="flex-row flex-center header">
+  <navigator url="create">
+    <button class="but-transparent color-theme">我的体验感受</button>
+  </navigator>
+</view>
+
+<view class="blog-list" wx:if="{{blogs.length > 0}}">
+  <block wx:for="{{blogs}}" wx:for-item="blog" wx:key="">
+    <view class="blog">
+      <view class="flex-row flex-space blog-header">
+        <text>{{blog.nickname}}</text>
+        <text>{{blog.issuetime}}</text>
+      </view>
+      <view class="blog-content">
+        {{blog.content}}
+      </view>
+      <view class="blog-tail" wx:if="{{blog.isowned == 1}}">
+        <navigator url="create?id={{blog.experienceid}}&content={{blog.content}}">
+          <button>修改</button>
+        </navigator>
+        <button class="ml-20" bindtap="onDelete" data-index="{{index}}">删除</button>        
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:else class="no-notice">
+  <text>暂时没有体验感受内容</text>
+</view>
+  

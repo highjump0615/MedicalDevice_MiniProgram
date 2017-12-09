@@ -1,0 +1,33 @@
+/* pages/manage/partner/list.wxss */
+
+.header {
+  justify-content: space-between;
+}  
+
+.tr .td:nth-child(1) {
+  flex: 10;
+}
+
+.tr .td:nth-child(2) {
+  flex: 32;
+}
+
+.tr .td:nth-child(3) {
+  flex: 35;
+}
+
+.tr .td:nth-child(4) {
+  flex: 20;
+}
+
+/* 搜索框 */
+.search {
+  display: flex;
+  align-items: center;
+}
+.search input {
+  margin: 10rpx;
+  padding: 10rpx;
+  font-size: 30rpx;
+  border: 1px solid #cfcfc4;
+}

@@ -1,13 +1,18 @@
+// pages/home/home.js
+var api = require('../../utils/api.js');
+var Device = require('../../model/Device.js');
+const app = getApp();
+
 var gnWidthButton = 130;
 var gnHeightButton = 45;
 
-// pages/home/home.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    controls: []
   },
 
   /**
@@ -15,37 +20,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
-    // 获取屏幕大小
-    wx.getSystemInfo({
-      success: function(res) {
-        // 设置两个按钮
-        that.setData({
-          controls: [{
-            id: 1,
-            iconPath: '../../res/images/but_start.png',
-            position: {
-              left: (res.windowWidth - gnWidthButton) / 2,
-              top: res.screenHeight - 250,
-              width: gnWidthButton,
-              height: gnHeightButton,
-            },
-            clickable: true
-          },
-          {
-            id: 2,
-            iconPath: '../../res/images/but_device.png',
-            position: {
-              left: (res.windowWidth - gnWidthButton) / 2,
-              top: res.screenHeight - 190,
-              width: gnWidthButton,
-              height: gnHeightButton,
-            },
-            clickable: true
-          }]
-        });
-      }
-    })
 
     // 获取当前位置
     wx.getLocation({
@@ -63,14 +37,50 @@ Page({
    * 点击地图控件
    * @param {*} e 
    */
-  controlTap(e) {
+  controlTap: function (e) {
+    var that = this;
+
     // 扫码开机
     if (e.controlId == 1) {
-      wx.scanCode({
-        success: (res) => {
-          console.log(res);
-        }
-      });
+      // 设备已开机
+      if (app.globalData.currentDevice) {
+        wx.navigateTo({
+          url: '../device/status'
+        });
+      }
+      // 没有设备绑定
+      else {
+        wx.scanCode({
+          success: (res) => {
+            console.log(res);
+
+            var strMac = Device.extractMac(res.result);
+
+            // 设备绑定
+            api.gwBindDevice(strMac, 
+              function success(res) {
+                if (res.data.error_code) {
+                  // 失败
+                  wx.showModal({
+                    title: '绑定设备失败',
+                    content: res.data.error_message,
+                    showCancel: false
+                  });
+
+                  return;
+                }
+
+                var device = new Device.initWithInfo(res.data);
+                that.startDevice(device);
+              },
+              function fail(err) {
+              },
+              function complete() {
+              }
+            );
+          }
+        });
+      }
     }
     // 设备入网
     else {
@@ -81,17 +91,92 @@ Page({
   },
 
   /**
+   * 打开设备
+   */
+  startDevice: function(device) {
+    var that = this;
+
+    wx.showModal({
+      title: '开机确认',
+      content: '确定要启动此设备吗？',
+      confirmColor: '#1AAD19',
+      success: function(res) {
+        if (res.confirm) {
+          that.doStartDevice(device);
+        }
+      }
+    });
+  },
+  
+  doStartDevice: function(device) {
+    var that = this;
+
+    device.startDevice(function success(res) {
+      // 开机成功，保存设备
+      app.globalData.currentDevice = device;
+      that.onShow();
+    }, 
+    function fail(err) {
+      // 失败
+      wx.showModal({
+        title: '设备开机失败',
+        content: res.data.error_message,
+        showCancel: false
+      });
+    });
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+
+    var strIconPath = '../../res/images/but_start.png';
+    // 已开机，改成状态按钮
+    if (app.globalData.currentDevice) {
+      strIconPath = '../../res/images/but_dev_status.png';
+    }
+    
+    // 获取屏幕大小
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res);
+
+        // 设置两个按钮
+        that.setData({
+          controls: [{
+            id: 1,
+            iconPath: strIconPath,
+            position: {
+              left: (res.windowWidth - gnWidthButton) / 2,
+              // top: res.screenHeight - 250,
+              top: res.windowHeight - gnHeightButton * 4,
+              width: gnWidthButton,
+              height: gnHeightButton,
+            },
+            clickable: true
+          }]
+          // {
+          //   id: 2,
+          //   iconPath: '../../res/images/but_device.png',
+          //   position: {
+          //     left: (res.windowWidth - gnWidthButton) / 2,
+          //     top: res.screenHeight - 190,
+          //     width: gnWidthButton,
+          //     height: gnHeightButton,
+          //   },
+          //   clickable: true
+          // }]
+        });
+      }
+    });  
   },
 
   /**

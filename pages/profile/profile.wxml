@@ -1,81 +1,94 @@
 <!--pages/profile/profile.wxml-->
-<scroll-view scroll-y="true">
-  <!-- 用户信息 -->
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text>{{userInfo.nickName}}</text>
-  </view>
+<!-- 用户信息 -->
+<view class="userinfo">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text>{{userInfo.nickName}}</text>
+</view>
 
-  <!-- 菜单 -->
-  <view class="nav-items">
-    <!-- 理疗 -->
-    <view class="nav-item bottom-border" bindtap="gotoCureList">
-      <text class="text-name flex-rest-width">理疗</text>
-      <view class="flex-row">
-        <text class="text-right">105次</text>
-        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
-      </view>
-    </view>
-
-    <!-- 积分 -->
+<!-- 菜单 -->
+<view class="nav-items">
+  <!-- 理疗 -->
+  <navigator url="treats">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">积分</text>
+      <text class="text-name">理疗</text>
       <view class="flex-row">
-        <text class="text-right">1200分</text>
+        <text class="text-right">{{userInfo.countTreat}} 次</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </navigator>
 
-    <!-- 提成 -->
+  <!-- 积分 -->
+  <navigator url="credits">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">提成</text>
+      <text class="text-name">积分</text>
       <view class="flex-row">
-        <text class="text-right">100元</text>
+        <text class="text-right">{{userInfo.totalCredit}} 分</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </navigator>
 
-    <!-- 管理员 -->
+  <!-- 提成 -->
+  <navigator url="commissions">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">管理员</text>
+      <text class="text-name">提成</text>
       <view class="flex-row">
-        <text class="text-right">25人</text>
+        <text class="text-right">{{userInfo.totalCommission}} 元</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </navigator>
 
-    <!-- 使用定价 -->
+  <!-- 管理员 -->
+  <navigator url="devicemanagers">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">使用定价</text>
+      <text class="text-name">管理员</text>
       <view class="flex-row">
+        <text class="text-right">{{userInfo.countDevAdmin}} 人</text>
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </navigator>
 
-    <!-- 体验感受 -->
+  <!-- 使用定价 -->
+  <navigator url="price">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">体验感受</text>
+      <text class="text-name">使用定价</text>
       <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </navigator>
 
-    <!-- 推荐分享 -->
+  <!-- 体验感受 -->
+  <navigator url="experience/experiences">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">推荐分享</text>
+      <text class="text-name">体验感受</text>
       <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </navigator>
 
-    <!-- 申报设备故障 -->
+  <!-- 推荐分享 -->
+  <button open-type="share" class="but-transparent">
     <view class="nav-item bottom-border">
-      <text class="text-name flex-rest-width">申报设备故障</text>
+      <text class="text-name">推荐分享</text>
       <view class="flex-row">
         <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
       </view>
     </view>
+  </button>
 
-  </view>
+  <!-- 申报设备故障 -->
+  <navigator url="report">
+    <view class="nav-item bottom-border">
+      <text class="text-name">申报设备故障</text>
+      <view class="flex-row">
+        <image class="nav-item-arrow" src="../../res/images/nav_rightmark.png" ></image>
+      </view>
+    </view>
+  </navigator>
 
-</scroll-view>
+</view>

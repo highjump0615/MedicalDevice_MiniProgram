@@ -1,0 +1,11 @@
+<!--pages/profile/experience/create.wxml-->
+<view class="main">
+  <!-- 标题 -->
+  <text>我的体验感受</text>
+  <view class="textarea">
+    <textarea bindinput="onInputContent" value="{{content}}">
+    </textarea>
+  </view>
+  <checkbox class="mt-20" checked="{{isPublic}}">公开</checkbox>
+  <button type="primary" bindtap="onSave" loading="{{isInProgress}}" class="mt-50">查找</button>
+</view>

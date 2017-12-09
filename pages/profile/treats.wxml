@@ -1,0 +1,29 @@
+<!--pages/profile/treats.wxml-->
+
+<!-- 表格 -->
+<view class="table" wx:if="{{items.length > 0}}">
+  <!-- 表头 -->
+  <view class="thead">
+  <view class="tr">
+    <view class="td">序号</view>
+      <view class="td">时间</view>
+      <view class="td">支付费用</view>
+      <view class="td">累计付费</view>
+  </view>
+  </view>
+
+  <!-- 内容-->
+  <view class="tbody">
+    <block wx:for="{{items}}" wx:for-item="item" wx:key="">
+    <view class="tr">
+      <view class="td">{{index + 1}}</view>
+      <view class="td">{{item.treattime}}</view>
+      <view class="td">{{item.payment}}</view>
+      <view class="td">{{item.paytotal}}</view>
+    </view>
+    </block>
+  </view>
+</view>
+<view wx:else class="no-notice">
+    <text>暂时没有理疗记录</text>
+</view>

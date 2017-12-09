@@ -1,0 +1,31 @@
+/* pages/manage/member/list.wxss */
+
+.header {
+  margin: 30rpx;
+  background-color: transparent; 
+  justify-content: space-between;
+}  
+
+.text-name {
+  width: 150rpx;
+}
+
+button {
+  margin: 50rpx 30rpx;
+}
+
+.tr .td:nth-child(1) {
+  flex: 10;
+}
+
+.tr .td:nth-child(2) {
+  flex: 28;
+}
+
+.tr .td:nth-child(3) {
+  flex: 30;
+}
+
+.tr .td:nth-child(4) {
+  flex: 28;
+}

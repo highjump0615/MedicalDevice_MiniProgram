@@ -4,24 +4,14 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"minified": true
+		"minified": true,
+		"newFeature": true
 	},
-	"compileType": "weapp",
+	"compileType": "miniprogram",
 	"libVersion": "1.6.0",
-	"appid": "wx56075a3ebcaa1961",
-	"projectname": "%E9%80%9A%E7%BB%9C%E4%B8%80%E5%A0%82",
+	"appid": "wx766c7e82fcaaf648",
+	"projectname": "TongLuoDevice",
 	"condition": {
-		"weapp": {
-			"current": 0,
-			"list": [
-				{
-					"id": 0,
-					"name": "home",
-					"pathName": "pages/home/home",
-					"query": ""
-				}
-			]
-		},
 		"search": {
 			"current": -1,
 			"list": []
@@ -29,6 +19,17 @@
 		"conversation": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "home",
+					"pathName": "pages/device/status",
+					"query": ""
+				}
+			]
 		}
 	}
 }

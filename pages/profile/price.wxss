@@ -1,0 +1,9 @@
+/* pages/profile/price.wxss */
+
+input {
+  text-align: right;
+}
+
+button {
+  margin: 60rpx 30rpx;
+}

@@ -16,23 +16,63 @@ button[type="primary"] {
   background-color: #1098a6;
 }
 
+/* 通用样式 */
+.mt-15 {
+  margin-top: 15rpx;
+}
+.mt-20 {
+  margin-top: 20rpx;
+}
+.mt-30 {
+  margin-top: 30rpx;
+}
+.mt-40 {
+  margin-top: 40rpx;
+}
+.mt-50 {
+  margin-top: 50rpx;
+}
+.ml-20 {
+  margin-left: 20rpx !important;
+}
+.ml-30 {
+  margin-left: 30rpx;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.top-border {
+  border-top: 1px solid #efeff4;
+}
+.bottom-border {
+  border-bottom: 1px solid #efeff4;
+}
+
+
 /* 列表样式 */
 .nav-items {
   margin-top: 30rpx;
   background: white;
 }
+.nav-items .nav-item:not(:last-child) {
+  border-bottom: 1px solid #efeff4;
+}
+.nav-items input {
+  font-size: 34rpx;
+}
 
 .nav-item {
-  height: 88rpx;
+  min-height: 48rpx;
   display:flex;
   margin-left: 30rpx;
   padding-right: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   align-items: center;
 }
-.nav-item.bottom-border {
-  border-bottom: 1px solid #efeff4;
-}
-.nav-item .text-name {
+.nav-item text {
   font-size: 34rpx;
 }
 .nav-item .text-right {
@@ -50,14 +90,21 @@ button[type="primary"] {
   align-self: center;
 }
 
+/* Flex布局 */
 .flex-rest-width {
   flex: 1;
 }
-
+.flex-space {
+  justify-content: space-between;
+}
 .flex-row {
   display: flex;
   align-items: center;
 }
+.flex-row.flex-center {
+  align-items: center;
+}
+
 
 /* 表格 */
 .table {
@@ -78,9 +125,74 @@ button[type="primary"] {
 }
 
 .td {
-  padding: 10px;
-  text-align: center;
+  padding: 10px 0px;
   border: 1px solid #bfbfbf;
   border-left: 0;
   border-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 页面 */
+.no-notice {
+  text-align: center;
+  margin-top: 300rpx;
+  font-size: 28rpx;
+  color: #a0a0a0;
+}
+
+/* 按钮 */
+.but-transparent {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+.but-transparent::after {
+  border: none;
+}
+
+button[loading]::before {
+  width: 24px;
+  height: 24px;
+  margin-right: 20rpx;
+}
+
+/* 列表页面表头 */
+.header {
+  background-color: #fafafa;
+  font-size: 30rpx;
+}
+.header button {
+  font-size: 30rpx;
+  line-height: 100rpx;
+  margin: 0 30rpx;
+}
+
+/* 查找结果 */
+.search-result text {
+  margin-left: 30rpx;
+  font-size: 30rpx;
+}
+.search-result .table {
+  margin-top: 10rpx;
+}
+
+/* 年月选择*/
+.select-year {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dfdfd4;
+  border-bottom: 1px solid #dfdfd4;
+}
+.select-year view {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.select-year picker {
+  flex: 1;
+}  
+.select-year view:not(:last-child) {
+  border-right: 1px solid #dfdfd4;
 }

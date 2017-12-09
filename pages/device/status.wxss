@@ -1,0 +1,34 @@
+/* pages/device/status.wxss */
+
+.container {
+  margin: 30rpx;
+}
+.status-with-bar {
+  font-size: 30rpx;
+  width: 100%;
+}
+.status-with-bar .title {
+  text-align: center;
+}
+.status-with-bar .graph {
+  height: 90rpx;
+  margin-top: 20rpx;
+  border: 1px solid black;
+  border-right-width: 0px;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+}
+.status-with-bar .graph view {
+  flex: 1;
+  line-height: 90rpx;
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+.red-bg {
+  background-color: #ff8400;
+}
+.green-bg {
+  background-color: #00c000;
+}
