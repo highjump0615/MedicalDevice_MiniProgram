@@ -190,14 +190,16 @@ Page({
    */
   gotoMain: function () {
 
+    var currentUser = app.globalData.currentUser;
+
     // 机智云匿名登录
-    api.gwLogin(null, 
+    api.gwLoginWithUserId(currentUser.id, 
       function success(res) {
         if (!res.data.token) {
           // 失败
           wx.showModal({
             title: '机智云登录失败',
-            content: '获取不到token和uid',
+            content: res.data.error_code + ', ' + res.data.error_message,
             showCancel: false
           });
 
