@@ -55,9 +55,11 @@ Device.prototype = {
         }
 
         // 定时获取数据
-          that.timerId = setInterval(function () {
-          that.getParameter()
+        that.timerId = setInterval(function () {
+          that.getParameter();
         }, 3000);
+
+        console.log('created Timer: ' + that.timerId);
         
         success();
       },
@@ -85,6 +87,8 @@ Device.prototype = {
         if (!res.dev_power) {
           clearInterval(that.timerId);
           app.closeDevice();
+
+          console.log('cleared Timer: ' + that.timerId);
         }
       },
       function fail(err) {

@@ -2,6 +2,7 @@
 var Device = require('../../model/Device.js');
 
 const app = getApp();
+var gntimerId;
 
 Page({
 
@@ -18,7 +19,7 @@ Page({
    */
   onLoad: function (options) {
     this.updateData();
-    setInterval(this.updateData, 1000);
+    gntimerId = setInterval(this.updateData, 1000);
   },
 
   /**
@@ -35,7 +36,16 @@ Page({
     }
     // 已关闭
     else {
-      wx.navigateBack();
+      // 提示
+      wx.showModal({
+        title: '设备已关闭',
+        content: '用户关闭了电源',
+        showCancel: false,
+        success: function (res) {
+          // 返回
+          wx.navigateBack();
+        }
+      });
     }
   },
 
@@ -64,7 +74,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    // 停止timer
+    clearInterval(gntimerId);
   },
 
   /**
