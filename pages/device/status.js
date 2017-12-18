@@ -31,7 +31,7 @@ Page({
     if (device) {
       this.setData({
         energy: device.energy,
-        remaining: (device.workTime / 2500) * 10
+        remaining: device.workTime
       });
     }
     // 已关闭
