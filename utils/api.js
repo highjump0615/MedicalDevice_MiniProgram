@@ -77,6 +77,29 @@ module.exports = {
   postRequest: postRequest,
 
   /**
+   * 匿名登录
+   */
+  gwLoginWithUserId: function (userid, success, fail, complete) {
+    var paramData = {
+      phone_id: 'tongluouser' + userid
+    };
+
+    var headerData = {
+      'X-Gizwits-Application-Id': config.gizwits.appId
+    };
+
+    // 调用后台请求
+    postRequestRaw(
+      config.gizwits.apiBaseUrl + '/users',
+      headerData,
+      paramData,
+      success,
+      fail,
+      complete
+    );
+  },
+
+  /**
    * 机智云登录
    */
   gwLogin: function (openid, success, fail, complete) {

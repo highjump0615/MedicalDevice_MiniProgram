@@ -190,8 +190,10 @@ Page({
    */
   gotoMain: function () {
 
+    var currentUser = app.globalData.currentUser;
+
     // 机智云匿名登录
-    api.gwLogin(null, 
+    api.gwLoginWithUserId(currentUser.id, 
       function success(res) {
         if (!res.data.token) {
           // 失败

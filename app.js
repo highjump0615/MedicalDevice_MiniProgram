@@ -44,11 +44,11 @@ App({
   closeDevice: function () {
     this.globalData.currentDevice = null;
 
-    // 提示
-    wx.showModal({
-      title: '设备已关闭',
-      content: '用户关闭了电源',
-      showCancel: false
-    });
+    // 刷新当前页面
+    var pages = getCurrentPages();
+    var curPage = pages[pages.length - 1];
+    if (curPage) {
+      curPage.onShow();
+    }
   }
 })
