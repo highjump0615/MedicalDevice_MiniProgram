@@ -25,12 +25,14 @@
   <!-- 内容-->
   <view class="tbody">
     <block wx:for="{{partners}}" wx:for-item="partner" wx:key="">
-    <view class="tr">
-        <view class="td">{{index + 1}}</view>
-        <view class="td">{{partner.nickname}}</view>
-        <view class="td">{{partner.phonenumber}}</view>
-        <view class="td">1000</view>
-    </view>
+      <navigator url="partner?userid={{partner.userid}}&name={{partner.nickname}}&phone={{partner.phonenumber}}">
+      <view class="tr">
+          <view class="td">{{index + 1}}</view>
+          <view class="td">{{partner.nickname}}</view>
+          <view class="td">{{partner.phonenumber}}</view>
+          <view class="td">{{partner.devicenumber}}</view>
+      </view>
+      </navigator>
     </block>
   </view>
 </view>
