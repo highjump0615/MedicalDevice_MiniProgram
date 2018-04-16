@@ -1,29 +1,30 @@
-var User = function (userInfo) {
-  // 初始化
-  this.nickName = userInfo.nickName;
-  this.gender = userInfo.gender;
-  this.avatarUrl = userInfo.avatarUrl;
+class User {
 
-  // 地理位置
-  this.latitude = 0;
-  this.longitude = 0;
+  static Roles = ['普通会员', '设备管理员','维修工程师', '平台管理员', '系统管理员'];
 
-  // 数据
+  constructor (userInfo) {
+    // 初始化
+    this.nickName = userInfo.nickName;
+    this.gender = userInfo.gender;
+    this.avatarUrl = userInfo.avatarUrl;
 
-  //
-  // 角色，0：普通会员，1：设备管理员，2：维修工程师，3：平台管理员，4：系统管理员
-  //
-  this.role = 0; // 普通会员
-}
+    // 地理位置
+    this.latitude = 0;
+    this.longitude = 0;
 
-User.Roles = ['普通会员', '设备管理员','维修工程师', '平台管理员', '系统管理员'];
+    // 数据
 
-User.prototype = {
-  getLocationFormatted: function () {
+    //
+    // 角色，0：普通会员，1：设备管理员，2：维修工程师，3：平台管理员，4：系统管理员
+    //
+    this.role = 0; // 普通会员
+  }
+
+  getLocationFormatted() {
     return this.latitude + ',' + this.longitude;
-  },
+  }
   
-  setRoleFromString: function (strRole) {
+  setRoleFromString(strRole) {
     if (strRole == '普通会员') {
       this.role = 0;
     }
@@ -32,5 +33,6 @@ User.prototype = {
     }
   }
 }
+
 
 module.exports = User;
