@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.0",
+	"libVersion": "1.7.2",
 	"appid": "wx766c7e82fcaaf648",
-	"projectname": "TongLuoDevice",
+	"projectname": "%E9%80%9A%E7%BB%9C%E5%90%A7",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -22,14 +22,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "home",
-					"pathName": "pages/device/status",
-					"query": ""
-				}
-			]
+			"list": []
 		}
 	}
 }

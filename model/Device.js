@@ -82,6 +82,7 @@ Device.prototype = {
         // 数据
         that.energy = res.dev_energy;
         that.workTime = res.dev_work_time;
+        console.log(res)
 
         // 已关闭，停止获取
         if (!res.dev_power) {

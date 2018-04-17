@@ -127,12 +127,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -140,7 +134,7 @@ Page({
 
     var strIconPath = '../../res/images/but_start.png';
     // 已开机，改成状态按钮
-    if (app.globalData.currentDevice) {
+    if (app.globalData.currentDevice && app.globalData.currentUser.role != 1) {
       strIconPath = '../../res/images/but_dev_status.png';
     }
     
@@ -177,34 +171,6 @@ Page({
         });
       }
     });  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
   },
 
   /**

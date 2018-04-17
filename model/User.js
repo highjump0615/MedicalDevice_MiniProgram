@@ -26,10 +26,15 @@ User.prototype = {
   setRoleFromString: function (strRole) {
     if (strRole == '普通会员') {
       this.role = 0;
-    }
-    else if (strRole == '系统管理员') {
+    } else if (strRole == '设备管理员') {
+      this.role = 1;
+    } else if (strRole == '维修工程师') {
+      this.role = 2;
+    } else if (strRole == '平台管理员') {
+      this.role = 3;
+    } else if (strRole == '系统管理员') {
       this.role = 4;
-    }
+    } 
   }
 }
 

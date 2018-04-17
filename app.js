@@ -2,7 +2,18 @@
 var User = require('model/User.js');
 
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
+    // 获取推荐人
+    if (options && options.userid) {
+      /*
+      wx.showModal({
+        title: '传入参数',
+        content: 'userid = '+options.userid,
+        showCancel: false
+      })
+      */
+    }
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
