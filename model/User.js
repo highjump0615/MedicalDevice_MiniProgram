@@ -1,41 +1,46 @@
-var User = function (userInfo) {
-  // 初始化
-  this.nickName = userInfo.nickName;
-  this.gender = userInfo.gender;
-  this.avatarUrl = userInfo.avatarUrl;
+class User {
 
-  // 地理位置
-  this.latitude = 0;
-  this.longitude = 0;
+  static Roles = ['普通会员', '设备管理员','维修工程师', '平台管理员', '系统管理员'];
 
-  // 数据
+  // 角色
+  // 0：普通会员
+  static ROLE_NORMAL = 0;
+  // 1：设备管理员
+  static ROLE_DEVICE_ADMIN = 1;
+  // 2：维修工程师
+  static ROLE_MAINTAIN_ENGINEER = 2;
+  // 3：平台管理员
+  static ROLE_PLATFORM_ADMIN = 3;
+  // 4：系统管理员
+  static ROLE_SYSTEM_ADMIN = 4;
 
-  //
-  // 角色，0：普通会员，1：设备管理员，2：维修工程师，3：平台管理员，4：系统管理员
-  //
-  this.role = 0; // 普通会员
-}
+  constructor (userInfo) {
+    // 初始化
+    this.nickName = userInfo.nickName;
+    this.gender = userInfo.gender;
+    this.avatarUrl = userInfo.avatarUrl;
 
-User.Roles = ['普通会员', '设备管理员','维修工程师', '平台管理员', '系统管理员'];
+    // 地理位置
+    this.latitude = 0;
+    this.longitude = 0;
 
-User.prototype = {
-  getLocationFormatted: function () {
+    // 数据
+
+    this.role = User.ROLE_NORMAL; // 普通会员
+  }
+
+  getLocationFormatted() {
     return this.latitude + ',' + this.longitude;
-  },
+  }
   
-  setRoleFromString: function (strRole) {
-    if (strRole == '普通会员') {
-      this.role = 0;
-    } else if (strRole == '设备管理员') {
-      this.role = 1;
-    } else if (strRole == '维修工程师') {
-      this.role = 2;
-    } else if (strRole == '平台管理员') {
-      this.role = 3;
-    } else if (strRole == '系统管理员') {
-      this.role = 4;
-    } 
+  setRoleFromString(strRole) {
+    for (var i = 0; i < User.Roles.length; i++) {
+      if (strRole == User.Roles[i]) {
+        this.role = i;
+      }
+    }
   }
 }
+
 
 module.exports = User;

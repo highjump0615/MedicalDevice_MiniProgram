@@ -10,6 +10,7 @@ Page({
   data: {
     // 查找
     searchName: '',
+    searchPhone: '',
 
     // 数据
     partners: []
@@ -32,7 +33,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.doSearch();
+  },
+
+  doSearch: function() {
     var that = this;
+
+    that.setData({
+      isInProgress: true
+    });
     
     //
     // 提取我的信息
@@ -41,7 +50,7 @@ Page({
       action: 'queryPartner',
       '3rd_session': app.globalData.thirdSession,
       nickname: that.data.searchName,
-      phonenumber: ''
+      phonenumber: that.data.searchPhone
     };
 
     api.postRequest(paramData, 
@@ -59,8 +68,29 @@ Page({
       function fail(err) {
       },
       function complete() {
+        that.setData({
+          isInProgress: false
+        });
       }
     );    
+  },
+
+  /**
+   * 输入昵称
+   */
+  onInputName: function (e) {
+    this.setData({
+      searchName: e.detail.value
+    });
+  },
+
+  /**
+   * 输入手机号
+   */
+  onInputPhone: function (e) {
+    this.setData({
+      searchPhone: e.detail.value
+    });
   },
 
   /**

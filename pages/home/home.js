@@ -115,6 +115,9 @@ Page({
       // 开机成功，保存设备
       app.globalData.currentDevice = device;
       that.onShow();
+
+      // 保存理疗记录
+      that.saveTreatLog(device);
     }, 
     function fail(err) {
       // 失败
@@ -124,6 +127,36 @@ Page({
         showCancel: false
       });
     });
+  },
+
+  /**
+   * 保存理疗记录
+   */
+  saveTreatLog: function(device) {
+    var currentUser = app.globalData.currentUser;
+
+    var paramData = {
+      action: 'saveTreat',
+      '3rd_session': app.globalData.thirdSession,
+      devicecode: device.mac,
+      payment: 0,
+      location: currentUser.getLocationFormatted()
+    };
+
+    api.postRequest(paramData, 
+      function success(res) {
+      },
+      function fail(err) {
+      },
+      function complete() {
+      }
+    );
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
   },
 
   /**

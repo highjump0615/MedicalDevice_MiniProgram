@@ -1,14 +1,30 @@
 <!--pages/manage/partner/list.wxml-->
 
-<view class="flex-row flex-center header">
-  <view class="search">
-    <input placeholder="昵称、手机号" />
-    <button class="but-transparent color-theme">查找</button>
+<!--pages/manage/partner/create.wxml-->
+<view class="nav-items top-border bottom-border">
+  <!-- 昵称 -->
+  <view class="nav-item">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">昵称：</text>
+      <input class="nav-item-content flex-rest-width" bindinput="onInputName" placeholder="请输入昵称" />
+    </view>
   </view>
-  <navigator url="create">
-    <button class="but-transparent color-theme">新合伙人</button>
-  </navigator>
+  <!-- 手机号 -->
+  <view class="nav-item">
+    <view class="flex-row flex-rest-width">
+      <text class="text-name">手机号：</text>
+      <input class="nav-item-content flex-rest-width" type="number" bindinput="onInputPhone" placeholder="请输入手机号" />
+    </view>
+  </view>
 </view>
+
+<!-- 查找 -->
+<button type="primary" class="main-button" bindtap="doSearch" loading="{{isInProgress}}">查找</button>
+
+<!-- 新合伙人 -->
+<navigator url="create" class="main-button">
+  <button type="primary">新合伙人</button>
+</navigator>
 
 <!-- 表格 -->
 <view class="table" wx:if="{{partners.length > 0}}">
@@ -25,12 +41,14 @@
   <!-- 内容-->
   <view class="tbody">
     <block wx:for="{{partners}}" wx:for-item="partner" wx:key="">
-    <view class="tr">
-        <view class="td">{{index + 1}}</view>
-        <view class="td">{{partner.nickname}}</view>
-        <view class="td">{{partner.phonenumber}}</view>
-        <view class="td">1000</view>
-    </view>
+      <navigator url="partner?userid={{partner.userid}}&name={{partner.nickname}}&phone={{partner.phonenumber}}">
+      <view class="tr">
+          <view class="td">{{index + 1}}</view>
+          <view class="td">{{partner.nickname}}</view>
+          <view class="td">{{partner.phonenumber}}</view>
+          <view class="td">{{partner.devicenumber}}</view>
+      </view>
+      </navigator>
     </block>
   </view>
 </view>
