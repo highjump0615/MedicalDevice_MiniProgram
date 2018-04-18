@@ -17,7 +17,6 @@ Page({
   },
 
   onLoad: function () {
-
     if (app.globalData.currentUser) {
       this.initPage();
     }
@@ -107,7 +106,6 @@ Page({
 
   getPhoneNumber: function(e) {
     var that = this;
-
     if (e.detail.errMsg != "getPhoneNumber:ok") {
       wx.showModal({
         title: '获取手机号失败',
