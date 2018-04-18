@@ -21,13 +21,15 @@
 }
 
 /* 搜索框 */
-.search {
-  display: flex;
-  align-items: center;
+.text-name {
+  width: 150rpx;
 }
-.search input {
-  margin: 10rpx;
-  padding: 10rpx;
-  font-size: 30rpx;
-  border: 1px solid #cfcfc4;
+
+.main-button {
+  margin: 20rpx 30rpx 0rpx 30rpx;
 }
+
+.table {
+  margin-top: 20rpx;
+}
+
