@@ -41,6 +41,29 @@
     <!-- 查找结果 -->
     <view class="search-result mt-40">
       <text>统计结果：</text>
+
+      <!-- 表格 -->
+      <view class="table" wx:if="{{useRecords.length > 0}}">
+        <!-- 表头 -->
+        <view class="thead">
+          <view class="tr">
+              <view class="td">序号</view>
+              <view class="td">年月</view>
+              <view class="td">使用次数</view>
+          </view>
+        </view>
+      
+        <!-- 内容-->
+        <view class="tbody">
+          <block wx:for="{{useRecords}}" wx:for-item="record" wx:key="">
+          <view class="tr">
+              <view class="td">{{index + 1}}</view>
+              <view class="td">{{record.month}}</view>
+              <view class="td">{{record.usetimes}}</view>
+          </view>
+          </block>
+        </view>
+      </view>
     </view>
 
   </view>

@@ -4,3 +4,16 @@
   margin: 30rpx;
   font-size: 30rpx;
 }
+
+.tr .td:nth-child(1) {
+  flex: 10;
+}
+
+.tr .td:nth-child(2) {
+  flex: 43;
+}
+
+.tr .td:nth-child(3) {
+  flex: 20;
+}
+

@@ -15,7 +15,9 @@ Page({
     // 数据
     year: '',
     months: app.globalData.months,
-    monthIndex: -1
+    monthIndex: -1,
+
+    useRecords: null
   },
 
   getMonth: function() {
@@ -112,6 +114,10 @@ Page({
           return;
         }
 
+        // 数据
+        that.setData({
+          useRecords: res.data.records
+        });
       },
       function fail(err) {
       },
